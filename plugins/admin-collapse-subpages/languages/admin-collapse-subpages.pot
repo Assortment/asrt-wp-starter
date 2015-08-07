@@ -1,0 +1,21 @@
+# Copyright (C) 2014 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version:  \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/admin-collapse-subpages\n"
+"POT-Creation-Date: 2014-11-08 21:43:41+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: bravokeyl <bravokeyl@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: admin_collapse_subpages.php:72
+msgid "Expand All"
+msgstr ""
+
+#: admin_collapse_subpages.php:73
+msgid "Collapse All"
+msgstr ""
