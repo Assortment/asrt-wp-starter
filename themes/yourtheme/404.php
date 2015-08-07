@@ -22,7 +22,7 @@ get_header();
 
 <main class="section">
     <div class="container">
-        <?php get_template_part('parts/not-found'); ?>
+        <?php // page/post not found ?>
     </div>
     <!-- .container -->
 </main>

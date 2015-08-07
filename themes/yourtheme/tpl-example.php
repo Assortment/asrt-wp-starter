@@ -41,7 +41,7 @@ get_header();
                 </article>
             <?php endwhile; ?>
         <?php else: ?>
-            <?php get_template_part('parts/not-found'); ?>
+            <?php // page not found ?>
         <?php endif; ?>
     </div>
     <!-- .container -->

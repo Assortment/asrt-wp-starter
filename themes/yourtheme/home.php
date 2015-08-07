@@ -45,7 +45,7 @@ $home_excerpt = get_excerpt_by_id(1);
                 </article>
             <?php endwhile; ?>
         <?php else: ?>
-            <?php get_template_part('parts/not-found'); ?>
+            <?php // posts not found ?>
         <?php endif; ?>
 
     </div>
