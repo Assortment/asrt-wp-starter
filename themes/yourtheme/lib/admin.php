@@ -48,22 +48,22 @@ add_action( 'admin_menu', 'wpst_remove_menu_pages' );
 /**
  * Remove columns from Posts and Pages listing
  */
-function wpst_post_type_columns( $defaults ) {
+function wpst_post_type_columns( $col ) {
     if( isset($_GET['post_type']) && $_GET['post_type'] == 'page' ):
-        $defaults['id'] = 'Page ID';
+        $col['id'] = 'Page ID';
     else:
-        $defaults['id'] = 'Post ID';
+        $col['id'] = 'Post ID';
     endif;
 
-    unset( $defaults['comments'] );
-    unset( $defaults['author'] );
-    unset( $defaults['tags'] );
+    unset( $col['comments'] );
+    unset( $col['author'] );
+    unset( $col['tags'] );
 
     if( isset($_GET['post_type']) && $_GET['post_type'] == 'page' ):
-        unset( $defaults['date'] );
+        unset( $col['date'] );
     endif;
 
-    return $defaults;
+    return $col;
 }
 
 add_filter( 'manage_posts_columns', 'wpst_post_type_columns' );
@@ -72,9 +72,10 @@ add_filter( 'manage_pages_columns', 'wpst_post_type_columns' );
 /**
  * Add ID column to Posts and Pages listing
  */
-function wpst_fill_id_column( $column_name, $id ) {
+function wpst_fill_id_column( $col, $id ) {
     global $post;
-    switch ( $column_name ) {
+
+    switch ( $col ) {
         case 'id':
             echo $id;
             break;
@@ -86,3 +87,31 @@ function wpst_fill_id_column( $column_name, $id ) {
 add_action( 'manage_posts_custom_column', 'wpst_fill_id_column', 10, 2 );
 add_action( 'manage_pages_custom_column', 'wpst_fill_id_column', 10, 2 );
 
+
+
+/**
+ * Update meta-boxes throughout the admin area
+ **************************************************************************/
+
+function wpst_remove_tinymce_emoji( $plugins ) {
+    if ( !is_array( $plugins ) ) {
+        return array();
+    }
+
+    return array_diff( $plugins, array( 'wpemoji' ) );
+}
+
+function wpst_remove_emoji() {
+    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+    remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+    remove_action( 'admin_print_styles', 'print_emoji_styles' );
+    remove_action( 'wp_print_styles', 'print_emoji_styles' );
+    remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+    remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+    remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+
+    // Remove from TinyMCE
+    add_filter( 'tiny_mce_plugins', 'wpst_remove_tinymce_emoji' );
+}
+
+add_action( 'init', 'wpst_remove_emoji' );
