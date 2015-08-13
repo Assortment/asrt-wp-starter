@@ -1,9 +1,9 @@
 <?php
 
 /**
- ***************************************************************************
+ *******************************************************************************
  * Functions
- ***************************************************************************
+ *******************************************************************************
  *
  * This file is used to change the default behavior of WordPress. The
  * changes, however, should each be within their own partial; to be
@@ -19,7 +19,7 @@
 
 /**
  * Admin area
- **************************************************************************/
+ ******************************************************************************/
 
 require_once( 'lib/admin.php' );
 
@@ -34,7 +34,7 @@ require_once( 'lib/admin.php' );
  * - Image sizes (additions + updates)
  * - Register Nav Menus
  * - Create Nav Walker
- **************************************************************************/
+ ******************************************************************************/
 
 require_once( 'lib/theme.php' );
 
@@ -44,7 +44,7 @@ require_once( 'lib/theme.php' );
  * Setup WP shortcodes
  * - Update to HTML5 standard shortcodes
  * - remove html tags around shortcodes
- * - create new shortcodes (title, btns, social networks, flexible content, contact info)
- **************************************************************************/
+ * - create new shortcodes
+ ******************************************************************************/
 
 require_once( 'lib/shortcodes.php' );

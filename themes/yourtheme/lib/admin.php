@@ -1,9 +1,9 @@
 <?php
 
 /**
- ***************************************************************************
+ *******************************************************************************
  * Admin area
- ***************************************************************************
+ *******************************************************************************
  *
  * This file is used to create a baseline for the admin area.
  *
@@ -11,10 +11,11 @@
  * - Remove pages (links, comments, etc)
  * - Update meta-boxes throughout the admin area
  * - Remove emoji support
- * - Add excerpt support to pages
+ * - Add/remove post type features
  * - Add ACF options page
  * - Update permalinks
  * - Allow SVG uploads
+ * - Stop core updates from admin area
  *
  */
 
@@ -22,7 +23,7 @@
 
 /**
  * Remove toolbar on front-end (appears when logged in)
- **************************************************************************/
+ ******************************************************************************/
 
 add_filter( 'show_admin_bar', '__return_false' );
 
@@ -30,7 +31,7 @@ add_filter( 'show_admin_bar', '__return_false' );
 
 /**
  * Remove pages (links, comments, etc)
- **************************************************************************/
+ ******************************************************************************/
 
 function wpst_remove_menu_pages() {
      remove_menu_page( 'link-manager.php' );
@@ -43,7 +44,7 @@ add_action( 'admin_menu', 'wpst_remove_menu_pages' );
 
 /**
  * Update meta-boxes throughout the admin area
- **************************************************************************/
+ ******************************************************************************/
 
 /**
  * Remove columns from Posts and Pages listing
@@ -90,8 +91,8 @@ add_action( 'manage_pages_custom_column', 'wpst_fill_id_column', 10, 2 );
 
 
 /**
- * Update meta-boxes throughout the admin area
- **************************************************************************/
+ * Remove emoji support
+ ******************************************************************************/
 
 function wpst_remove_tinymce_emoji( $plugins ) {
     if ( !is_array( $plugins ) ) {
@@ -115,3 +116,26 @@ function wpst_remove_emoji() {
 }
 
 add_action( 'init', 'wpst_remove_emoji' );
+
+
+
+/**
+ * Add/remove post type features
+ ******************************************************************************/
+
+function wpst_update_post_type_features() {
+    remove_post_type_support( 'post', 'comments' );
+    remove_post_type_support( 'post', 'thumbnail' );
+    remove_post_type_support( 'post', 'trackbacks' );
+    remove_post_type_support( 'post', 'custom-fields' );
+
+    remove_post_type_support( 'page', 'comments' );
+    remove_post_type_support( 'page', 'thumbnail' );
+    remove_post_type_support( 'page', 'trackbacks' );
+    remove_post_type_support( 'page', 'custom-fields' );
+
+    add_post_type_support( 'page', 'excerpt' );
+}
+
+add_action( 'init', 'wpst_update_post_type_features' );
+
