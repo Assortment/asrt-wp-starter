@@ -139,3 +139,28 @@ function wpst_update_post_type_features() {
 
 add_action( 'init', 'wpst_update_post_type_features' );
 
+
+
+/**
+ * Add ACF options page
+ ******************************************************************************/
+
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page();
+}
+
+
+
+/**
+ * Update permalinks
+ ******************************************************************************/
+
+function wpst_set_permalinks() {
+    global $wp_rewrite;
+
+    $wp_rewrite->set_permalink_structure( '/blog/%postname%/' );
+    $wp_rewrite->set_category_base( 'blog/categories' );
+    $wp_rewrite->set_category_base( 'blog/tags' );
+}
+
+add_action( 'after_switch_theme' , 'wpst_set_permalinks', 10, 2 );
