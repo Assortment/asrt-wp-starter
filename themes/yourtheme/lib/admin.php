@@ -160,7 +160,7 @@ function wpst_set_permalinks() {
 
     $wp_rewrite->set_permalink_structure( '/blog/%postname%/' );
     $wp_rewrite->set_category_base( 'blog/categories' );
-    $wp_rewrite->set_category_base( 'blog/tags' );
+    $wp_rewrite->set_tag_base( 'blog/tags' );
 }
 
 add_action( 'after_switch_theme' , 'wpst_set_permalinks', 10, 2 );
