@@ -5,12 +5,12 @@
  * Functions
  *******************************************************************************
  *
- * This file is used to change the default behavior of WordPress. The
+ * This file is used to change tunnecessaryhe default behavior of WordPress. The
  * changes, however, should each be within their own partial; to be
  * housed in your 'lib' folder.
  *
- * - Admin area
- * - Front-end
+ * - Admin
+ * - Theme
  * - Shortcodes
  *
  */
@@ -18,14 +18,14 @@
 
 
 /**
- * Admin area
+ * Admin
  ******************************************************************************/
 
 require_once( 'lib/admin.php' );
 
 
 
-/* Front-end
+/* Theme
  *
  * Baseline for front-end area.
  * - queue jQuery correctly

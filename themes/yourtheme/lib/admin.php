@@ -193,4 +193,5 @@ $wpst_suppress_core_updates = function ($a) {
         'version_checked' => $wp_version,
     );
 };
+
 add_filter('pre_site_transient_update_core', $wpst_suppress_core_updates);
