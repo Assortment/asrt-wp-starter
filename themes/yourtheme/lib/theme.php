@@ -9,9 +9,8 @@
  *
  * - Remove unnecessary meta/link tags
  * - Queue jQuery correctly
- * - Remove thumbnail dimensions
+ * - Update image sizes
  * - Gravity forms
- * - Image sizes (additions + updates)
  * - Register Nav Menus
  * - Create Nav Walker
  *
@@ -51,3 +50,12 @@ function wpst_requeue_jquery() {
 }
 
 if ( !is_admin() ) add_action("wp_enqueue_scripts", "wpst_requeue_jquery", 11);
+
+
+
+/**
+ * Update image sizes
+ ******************************************************************************/
+
+get_option("medium_crop") === false ? add_option("medium_crop", "1") : update_option("medium_crop", "1");
+get_option("large_crop") === false ? add_option("large_crop", "1") : update_option("large_crop", "1");
