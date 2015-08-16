@@ -9,6 +9,7 @@
  *
  * - Remove toolbar on front-end (appears when logged in)
  * - Remove pages (links, comments, etc)
+ * - Remove default widgets
  * - Update meta-boxes throughout the admin area
  * - Remove emoji support
  * - Add/remove post type features
@@ -39,6 +40,34 @@ function wpst_remove_menu_pages() {
 }
 
 add_action( 'admin_menu', 'wpst_remove_menu_pages' );
+
+
+
+/**
+ * Update meta-boxes throughout the admin area
+ ******************************************************************************/
+
+function wpst_unregister_widgets() {
+    unregister_widget( 'WP_Widget_Pages' );
+    unregister_widget( 'WP_Widget_Calendar' );
+    unregister_widget( 'WP_Widget_Archives' );
+    unregister_widget( 'WP_Widget_Links' );
+    unregister_widget( 'WP_Widget_Categories' );
+    unregister_widget( 'WP_Widget_Recent_Posts' );
+    unregister_widget( 'WP_Widget_Search' );
+    unregister_widget( 'WP_Widget_Tag_Cloud' );
+    unregister_widget( 'WP_Widget_RSS' );
+    unregister_widget( 'WP_Widget_Meta' );
+    unregister_widget( 'WP_Widget_Recent_Comments' );
+    unregister_widget( 'WP_Nav_Menu_Widget' );
+    unregister_widget( 'bcn_widget' );
+    unregister_widget( 'GFWidget' );
+    unregister_widget( 'HSS_WpWidgets' );
+    unregister_widget( 'P2P_Widget' );
+    unregister_widget( 'WP_Widget_Recent_Posts_No_Title_Attributes' );
+}
+
+add_action( 'widgets_init', 'wpst_unregister_widgets' );
 
 
 
