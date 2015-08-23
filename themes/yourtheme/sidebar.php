@@ -32,7 +32,7 @@ if( $post->post_parent > 0 || has_children() ): ?>
          *
          * @var int
          */
-        $page_id = ($post->post_parent > 0) ? $post->post_parent : $post->ID;
+        $page_id = ( $post->post_parent > 0 ) ? $post->post_parent : $post->ID;
 
         /**
          * Get all pages that match arguments below
@@ -44,25 +44,28 @@ if( $post->post_parent > 0 || has_children() ): ?>
             'post_type'    => 'page',
             'exclude'      => $excluded,
             'sort_order'   => 'ASC',
-            'sort_column'  => 'menu_order',
+            'sort_column'  => 'menu_order'
         );
-        $list_pages = get_pages($list_args);
+
+        $list_pages = get_pages( $list_args );
 
         /**
          * If pages exist
          */
-        if($list_pages) { ?>
+        if( $list_pages ): ?>
             <article class="sidebar__section">
                 In this section:
+
                 <nav>
                     <?php
 
                     /**
                      * Loop through pages
                      */
-                    foreach($list_pages as $post): setup_postdata($post); ?>
-                        <?php $page_url = get_permalink($page->ID); ?>
-                        <li class="<?php if(is_page($page->ID)) { ?>is-current<?php } ?>">
+                    foreach( $list_pages as $post ): ?>
+                        <?php setup_postdata( $post ); ?>
+                        <?php $page_url = get_permalink( $page->ID ); ?>
+                        <li class="<?php echo is_page( $page->ID ) ? 'is-current' : ''; ?>">
                             <a href="<?php echo $page_url; ?>">
                                 <?php echo $page->post_title; ?>
                             </a>
@@ -70,6 +73,6 @@ if( $post->post_parent > 0 || has_children() ): ?>
                     <?php endforeach; wp_reset_postdata(); ?>
                 </nav>
             </article>
-        <?php } ?>
+        <?php endif; ?>
     </aside>
 <?php endif; ?>

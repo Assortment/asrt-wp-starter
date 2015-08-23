@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Titles/Descriptions -->
-    <title><?php wp_title( '', true, 'right' ); ?><?php if ( ! is_front_page() ): ?>| <?php bloginfo( 'name' ); ?><?php endif; ?></title>
+    <title><?php wp_title( '', true, 'right' ); ?><?php echo ! is_front_page() ? '| ' . bloginfo( 'name' ) : ''; ?></title>
     <link rel="canonical" href="<?php echo get_bloginfo('url'); ?>" />
 
     <!-- Favicons -->

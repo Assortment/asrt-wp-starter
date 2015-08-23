@@ -5,9 +5,9 @@
  * Functions
  *******************************************************************************
  *
- * This file is used to change tunnecessaryhe default behavior of WordPress. The
- * changes, however, should each be within their own partial; to be
- * housed in your 'lib' folder.
+ * This file is used to change tunnecessaryhe default behavior of WordPress.
+ * The modifications should each be saved within their own partial, housed within
+ * your 'lib' folder.
  *
  * - Admin
  * - Theme

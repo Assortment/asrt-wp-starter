@@ -5,7 +5,7 @@
  * 404 Template
  ***************************************************************************
  *
- * This template is used to show a HTTP 404 error.
+ * This template is used to show a HTTP 404 error repsonse.
  *
  */
 
@@ -22,9 +22,10 @@ get_header();
 
 <main class="section">
     <div class="container">
-        <?php // page/post not found ?>
-    </div>
-    <!-- .container -->
+
+        <!-- Post/Page not found -->
+
+    </div> <!-- .container -->
 </main>
 
 <?php get_footer(); ?>
