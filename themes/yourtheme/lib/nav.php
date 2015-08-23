@@ -21,9 +21,9 @@
 
 function wpst_register_nav_menus () {
     $args = array(
-        'primary' => __( 'Primary' ),
+        'primary'   => __( 'Primary' ),
         'secondary' => __( 'Secondary' ),
-        'tertiary' => __( 'Tertiary' )
+        'tertiary'  => __( 'Tertiary' )
     );
 
     register_nav_menus( $args );
