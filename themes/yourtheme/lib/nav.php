@@ -19,7 +19,7 @@
  * Register Nav Menus
  ******************************************************************************/
 
-function wpst_register_nav_menus() {
+function wpst_register_nav_menus () {
     $args = array(
         'primary' => __( 'Primary' ),
         'secondary' => __( 'Secondary' ),

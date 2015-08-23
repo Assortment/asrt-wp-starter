@@ -34,7 +34,7 @@ add_filter( 'show_admin_bar', '__return_false' );
  * Remove pages (links, comments, etc)
  ******************************************************************************/
 
-function wpst_remove_menu_pages() {
+function wpst_remove_menu_pages () {
      remove_menu_page( 'link-manager.php' );
      remove_menu_page( 'edit-comments.php' );
 }
@@ -47,7 +47,7 @@ add_action( 'admin_menu', 'wpst_remove_menu_pages' );
  * Update meta-boxes throughout the admin area
  ******************************************************************************/
 
-function wpst_unregister_widgets() {
+function wpst_unregister_widgets () {
     unregister_widget( 'WP_Widget_Pages' );
     unregister_widget( 'WP_Widget_Calendar' );
     unregister_widget( 'WP_Widget_Archives' );
@@ -78,16 +78,14 @@ add_action( 'widgets_init', 'wpst_unregister_widgets' );
 /**
  * Remove columns from Posts and Pages listing
  */
-function wpst_post_type_columns( $col ) {
+function wpst_post_type_columns ( $col ) {
     if( isset($_GET['post_type']) && $_GET['post_type'] == 'page' ):
         $col['id'] = 'Page ID';
     else:
         $col['id'] = 'Post ID';
     endif;
 
-    unset( $col['comments'] );
-    unset( $col['author'] );
-    unset( $col['tags'] );
+    unset( $col['comments'], $col['author'], $col['tags'] );
 
     if( isset($_GET['post_type']) && $_GET['post_type'] == 'page' ):
         unset( $col['date'] );
@@ -102,7 +100,7 @@ add_filter( 'manage_pages_columns', 'wpst_post_type_columns' );
 /**
  * Add ID column to Posts and Pages listing
  */
-function wpst_fill_id_column( $col, $id ) {
+function wpst_fill_id_column ( $col, $id ) {
     global $post;
 
     switch ( $col ) {
@@ -123,7 +121,10 @@ add_action( 'manage_pages_custom_column', 'wpst_fill_id_column', 10, 2 );
  * Remove emoji support
  ******************************************************************************/
 
-function wpst_remove_tinymce_emoji( $plugins ) {
+/**
+ * Remove Emoji support from WYSIWIG instances
+ */
+function wpst_remove_tinymce_emoji ( $plugins ) {
     if ( !is_array( $plugins ) ) {
         return array();
     }
@@ -131,7 +132,10 @@ function wpst_remove_tinymce_emoji( $plugins ) {
     return array_diff( $plugins, array( 'wpemoji' ) );
 }
 
-function wpst_remove_emoji() {
+/**
+ * Remove Emoji support throughout the site
+ */
+function wpst_remove_emoji () {
     remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
     remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
     remove_action( 'admin_print_styles', 'print_emoji_styles' );
@@ -140,7 +144,6 @@ function wpst_remove_emoji() {
     remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
     remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
 
-    // Remove from TinyMCE
     add_filter( 'tiny_mce_plugins', 'wpst_remove_tinymce_emoji' );
 }
 
@@ -184,7 +187,7 @@ if( function_exists('acf_add_options_page') ) {
  * Update permalinks
  ******************************************************************************/
 
-function wpst_set_permalinks() {
+function wpst_set_permalinks () {
     global $wp_rewrite;
 
     $wp_rewrite->set_permalink_structure( '/blog/%postname%/' );
@@ -200,7 +203,7 @@ add_action( 'after_switch_theme' , 'wpst_set_permalinks', 10, 2 );
  * Allow SVG uploads
  ******************************************************************************/
 
-function wpst_update_mime_types( $mimes ){
+function wpst_update_mime_types ( $mimes ){
     $mimes['svg'] = 'image/svg+xml';
 
     return $mimes;
@@ -214,7 +217,7 @@ add_filter( 'upload_mimes', 'wpst_update_mime_types' );
  * Stop core updates from admin area
  ******************************************************************************/
 
-$wpst_suppress_core_updates = function ($a) {
+$wpst_suppress_core_updates = function ( $a ) {
     global $wp_version;
 
     return (object) array(
@@ -223,4 +226,4 @@ $wpst_suppress_core_updates = function ($a) {
     );
 };
 
-add_filter('pre_site_transient_update_core', $wpst_suppress_core_updates);
+add_filter( 'pre_site_transient_update_core', $wpst_suppress_core_updates );

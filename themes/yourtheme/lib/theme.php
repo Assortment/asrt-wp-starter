@@ -39,17 +39,22 @@ remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 );
  * Queue jQuery correctly
  ******************************************************************************/
 
-function wpst_requeue_jquery() {
+function wpst_requeue_jquery () {
+    $js_head = get_stylesheet_directory_uri() . '/assets/js/min/head.min.js';
+    $js_main = get_stylesheet_directory_uri() . '/assets/js/min/main.min.js';
+
     wp_deregister_script( 'jquery' );
 
-    wp_register_script( 'jquery', get_stylesheet_directory_uri() . '/assets/js/min/head.min.js', '', '', false );
+    wp_register_script( 'jquery', $js_head, '', '', false );
     wp_enqueue_script( 'jquery' );
 
-    wp_register_script( 'js-main', get_stylesheet_directory_uri() . '/assets/js/min/main.min.js', '', '', true );
+    wp_register_script( 'js-main', $js_main, '', '', true );
     wp_enqueue_script( 'js-main' );
 }
 
-if ( !is_admin() ) add_action("wp_enqueue_scripts", "wpst_requeue_jquery", 11);
+if ( !is_admin() ) {
+    add_action( 'wp_enqueue_scripts', 'wpst_requeue_jquery', 11 );
+}
 
 
 
@@ -57,8 +62,17 @@ if ( !is_admin() ) add_action("wp_enqueue_scripts", "wpst_requeue_jquery", 11);
  * Update image sizes
  ******************************************************************************/
 
-get_option("medium_crop") === false ? add_option("medium_crop", "1") : update_option("medium_crop", "1");
-get_option("large_crop") === false ? add_option("large_crop", "1") : update_option("large_crop", "1");
+if ( get_option("medium_crop") === false ) {
+    add_option("medium_crop", "1");
+} else {
+    update_option("medium_crop", "1");
+}
+
+if ( get_option("large_crop") === false ) {
+    add_option("large_crop", "1")
+} else {
+    update_option("large_crop", "1");
+}
 
 
 
