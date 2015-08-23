@@ -11,7 +11,9 @@
  *
  * - Admin
  * - Theme
+ * - Navigation
  * - Shortcodes
+ * - Utility
  *
  */
 
@@ -25,21 +27,23 @@ require_once( 'lib/admin.php' );
 
 
 
-/* Theme
- *
- * Baseline for front-end area.
- * - queue jQuery correctly
- * - remove thumbnail dimensions
- * - Gravity forms
- * - Image sizes (additions + updates)
- * - Register Nav Menus
- * - Create Nav Walker
+/**
+ * Theme
  ******************************************************************************/
 
 require_once( 'lib/theme.php' );
 
 
-/* Shortcodes
+
+/**
+ * Navigation
+ ******************************************************************************/
+
+require_once( 'lib/nav.php' );
+
+
+/**
+ * Shortcodes
  *
  * Setup WP shortcodes
  * - Update to HTML5 standard shortcodes

@@ -69,7 +69,7 @@ get_option("large_crop") === false ? add_option("large_crop", "1") : update_opti
 /**
  * Better validation message
  */
-function wpst_update_validation_message( $message, $form ){
+function wpst_update_validation_message( $msg, $form ){
     $output  = '<div class="alert alert--error">';
     $output .= '<strong>Error:</strong> Please complete the required fields and try again';
     $output .= '</div>';
@@ -82,7 +82,7 @@ add_filter( 'gform_validation_message', 'wpst_update_validation_message', 10, 2 
 /**
  * Update the Form submit button
  */
-function wpst_gforms_submit_button( $button, $form ){
+function wpst_gforms_submit_button( $btn, $form ){
     $output  = '<button type="submit" class="btn btn--primary" id="gform_submit_button_' . $form["id"] . '">';
     $output .= $btn_array["text"];
     $output .= '</button>';
