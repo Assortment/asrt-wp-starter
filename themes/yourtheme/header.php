@@ -1,3 +1,30 @@
+<?php
+
+    /**
+     * Use the Nav Walker extension
+     */
+    $wpst_nav_walker = new wpst_nav_walker;
+
+    /**
+     * Primary nav arguments
+     */
+    $wpst_nav_primary_args = array(
+        'theme_location' => 'primary',
+        'items_wrap' => '%3$s',
+        'walker' => $wpst_nav_walker
+    );
+
+    /**
+     * Primary nav arguments
+     */
+    $wpst_nav_secondary_args = array(
+        'theme_location' => 'secondary',
+        'items_wrap' => '%3$s',
+        'walker' => $wpst_nav_walker
+    );
+
+?>
+
 <!DOCTYPE html>
 <!--[if IE]><html class="no-js ie lt-ie9 " lang="en"><![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html class="no-js " lang="en"><!--<![endif]-->
@@ -39,13 +66,14 @@
             yourtheme
         </a>
 
+        <?php $wpst_nav_walker = new wpst_nav_walker; ?>
         <nav class="nav-container | header__nav" id="navigation" role="navigation">
             <ul class="nav nav--primary">
-                <?php wp_nav_menu( array( 'theme_location' => 'primary', 'items_wrap' => '%3$s') ); ?>
+                <?php wp_nav_menu( $wpst_nav_primary_args ); ?>
             </ul>
 
             <ul class="nav nav--secondary">
-                <?php wp_nav_menu( array( 'theme_location' => 'secondary', 'items_wrap' => '%3$s') ); ?>
+                <?php wp_nav_menu( $wpst_nav_secondary_args ); ?>
             </ul>
         </nav>
     </div>
