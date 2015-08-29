@@ -1,27 +1,38 @@
 <?php
 
-    /**
-     * Use the Nav Walker extension
-     */
-    $wpst_nav_walker = new wpst_nav_walker;
+/**
+ ***************************************************************************
+ * Header
+ ***************************************************************************
+ *
+ * The header.php is created to house all the global information you need
+ * within the site's header. For example, logo, tagline, navigation, etc.
+ * This template is accessible via the get_header() WP function.
+ *
+ */
 
-    /**
-     * Primary nav arguments
-     */
-    $wpst_nav_primary_args = array(
-        'theme_location' => 'primary',
-        'items_wrap' => '%3$s',
-        'walker' => $wpst_nav_walker
-    );
+/**
+ * Use the Nav Walker extension
+ */
+$wpst_nav_walker = new wpst_nav_walker;
 
-    /**
-     * Primary nav arguments
-     */
-    $wpst_nav_secondary_args = array(
-        'theme_location' => 'secondary',
-        'items_wrap' => '%3$s',
-        'walker' => $wpst_nav_walker
-    );
+/**
+ * Primary nav arguments
+ */
+$wpst_nav_primary_args = array(
+    'theme_location' => 'primary',
+    'items_wrap' => '%3$s',
+    'walker' => $wpst_nav_walker
+);
+
+/**
+ * Primary nav arguments
+ */
+$wpst_nav_secondary_args = array(
+    'theme_location' => 'secondary',
+    'items_wrap' => '%3$s',
+    'walker' => $wpst_nav_walker
+);
 
 ?>
 
@@ -57,6 +68,7 @@
     <!-- wp_head -->
     <?php wp_head(); ?>
 </head>
+
 <body class="debug">
 <a href="#navigation" class="is-hidden">Skip to Navigation</a>
 
