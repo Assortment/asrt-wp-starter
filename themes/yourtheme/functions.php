@@ -42,6 +42,25 @@ require_once( 'lib/theme.php' );
 require_once( 'lib/nav.php' );
 
 
+
+/**
+ * Post Types
+ ******************************************************************************/
+
+require_once( 'lib/post-types/example.php' );
+// Each post type should be required separately
+
+
+
+/**
+ * Taxonomies
+ ******************************************************************************/
+
+require_once( 'lib/taxonomies/example.php' );
+// Each taxonomy should be required separately
+
+
+
 /**
  * Shortcodes
  *
