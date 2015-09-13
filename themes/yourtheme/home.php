@@ -26,28 +26,28 @@ $home_excerpt = get_excerpt_by_id( 1 );
 
 <main class="section">
     <div class="container">
-        <?php if( $home_title ): ?>
+        <?php if ( $home_title ): ?>
             <h1 class="headline"><?php echo $home_title; ?></h1>
         <?php endif; ?>
 
-        <?php if( $home_excerpt ): ?>
+        <?php if ( $home_excerpt ): ?>
             <p class="intro"><?php echo $excerpt; ?></p>
         <?php endif; ?>
 
         <?php if ( have_posts() ): ?>
-            <?php while ( have_posts()) : ?>
+            <?php while ( have_posts() ): ?>
                 <?php the_post(); ?>
 
                 <article>
                     <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 
-                    <?php if( $post->post_excerpt ): ?>
+                    <?php if ( $post->post_excerpt ): ?>
                         <?php echo get_the_excerpt(); ?>
                     <?php endif; ?>
                 </article>
             <?php endwhile; ?>
         <?php else: ?>
-            <?php get_template_part('partials/not-found'); ?>
+            <?php get_template_part( 'partials/not-found' ); ?>
         <?php endif; ?>
 
     </div>

@@ -22,7 +22,7 @@ $excluded = array();
  * Only display sidebar if the current template has children
  * or isn't a child itself.
  */
-if( $post->post_parent > 0 || has_children() ): ?>
+if ( $post->post_parent > 0 || has_children() ): ?>
     <aside class="sidebar" role="complementary">
         <?php
 
@@ -52,7 +52,7 @@ if( $post->post_parent > 0 || has_children() ): ?>
         /**
          * If pages exist
          */
-        if( $list_pages ): ?>
+        if ( $list_pages ): ?>
             <article class="sidebar__section">
                 In this section:
 
@@ -62,15 +62,27 @@ if( $post->post_parent > 0 || has_children() ): ?>
                     /**
                      * Loop through pages
                      */
-                    foreach( $list_pages as $post ): ?>
-                        <?php setup_postdata( $post ); ?>
-                        <?php $page_url = get_permalink( $page->ID ); ?>
+                    foreach ( $list_pages as $post ):
+
+                        /**
+                         * Setup post data
+                         */
+                        setup_postdata( $post );
+
+                        /**
+                         * Get page URL
+                         */
+                        $page_url = get_permalink( $page->ID );
+
+                        ?>
+
                         <li class="<?php echo is_page( $page->ID ) ? 'is-current' : ''; ?>">
                             <a href="<?php echo $page_url; ?>">
                                 <?php echo $page->post_title; ?>
                             </a>
                         </li>
-                    <?php endforeach; wp_reset_postdata(); ?>
+                    <?php endforeach; ?>
+                    <?php wp_reset_postdata(); ?>
                 </nav>
             </article>
         <?php endif; ?>

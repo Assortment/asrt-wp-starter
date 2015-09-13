@@ -21,8 +21,8 @@ $wpst_nav_walker = new wpst_nav_walker;
  */
 $wpst_nav_primary_args = array(
     'theme_location' => 'primary',
-    'items_wrap' => '%3$s',
-    'walker' => $wpst_nav_walker
+    'items_wrap'     => '%3$s',
+    'walker'         => $wpst_nav_walker
 );
 
 /**
@@ -30,8 +30,8 @@ $wpst_nav_primary_args = array(
  */
 $wpst_nav_secondary_args = array(
     'theme_location' => 'secondary',
-    'items_wrap' => '%3$s',
-    'walker' => $wpst_nav_walker
+    'items_wrap'     => '%3$s',
+    'walker'         => $wpst_nav_walker
 );
 
 ?>
@@ -51,7 +51,7 @@ $wpst_nav_secondary_args = array(
     <link rel="canonical" href="<?php echo get_bloginfo('url'); ?>" />
 
     <!-- Favicons -->
-    <?php get_template_part('parts/favicons'); ?>
+    <?php get_template_part( 'parts/favicons' ); ?>
 
     <!-- Styles -->
     <!--[if IE 9]><!-->
@@ -78,7 +78,6 @@ $wpst_nav_secondary_args = array(
             yourtheme
         </a>
 
-        <?php $wpst_nav_walker = new wpst_nav_walker; ?>
         <nav class="nav-container | header__nav" id="navigation" role="navigation">
             <ul class="nav nav--primary">
                 <?php wp_nav_menu( $wpst_nav_primary_args ); ?>
