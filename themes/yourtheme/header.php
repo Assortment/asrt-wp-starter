@@ -23,4 +23,4 @@ get_template_part( 'views/partials/meta' );
 /**
  * Get view for <header>
  */
-get_template_part( 'views/partials/head' );
+get_template_part( 'views/partials/headbar' );
