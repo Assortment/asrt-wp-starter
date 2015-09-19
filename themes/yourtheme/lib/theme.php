@@ -97,8 +97,8 @@ add_filter( 'gform_validation_message', 'wpst_update_validation_message', 10, 2 
  * Update the Form submit button
  */
 function wpst_gforms_submit_button( $btn, $form ){
-    $output  = '<button type="submit" class="btn btn--primary" id="gform_submit_button_' . $form["id"] . '">';
-    $output .= $btn_array["text"];
+    $output  = '<button type="submit" class="btn btn--primary" id="gform_submit_button_' . $form['id'] . '">';
+    $output .= $form['button']['text'];
     $output .= '</button>';
 
     return $output;
