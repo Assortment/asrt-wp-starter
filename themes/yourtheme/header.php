@@ -9,18 +9,15 @@
  * within the site's header. For example, logo, tagline, navigation, etc.
  * This template is accessible via the get_header() WP function.
  *
+ * - Meta Information
+ * - Header
+ *
  */
 
 
 
-/**
- * Get view for <head>
- */
+// Meta Information
 get_template_part( 'views/partials/meta' );
 
-
-
-/**
- * Get view for <header>
- */
+// Header
 get_template_part( 'views/partials/headbar' );

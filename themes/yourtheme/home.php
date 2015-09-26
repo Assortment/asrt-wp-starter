@@ -11,13 +11,14 @@
  *
  */
 
-/**
- * Get the header
- */
+
+
+// Get the header
 get_header();
 
 /**
- * Get variables from 'blog' page in CMS by its ID
+ * Get content from 'blog' page in CMS by its ID
+ * @var string
  */
 $home_title   = get_the_title( 1 );
 $home_excerpt = get_excerpt_by_id( 1 );

@@ -7,22 +7,16 @@
  *
  * All custom templates should be prefixed with `tpl-` for navigation
  * purposes. To associate this template with WordPress, write the
- * Template Name underneath like so.
- *
+ * template name underneath like so.
  *
  * Template Name: Example
  *
  */
 
 
-/**
- * Get the header
- */
-get_header();
 
-/**
- * More logic to go underneath
- */
+// Get the header
+get_header();
 
 ?>
 

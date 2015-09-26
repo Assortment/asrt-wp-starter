@@ -9,14 +9,10 @@
  *
  */
 
-/**
- * Get the header
- */
-get_header();
 
-/**
- * More logic to go underneath
- */
+
+// Get the header
+get_header();
 
 ?>
 
