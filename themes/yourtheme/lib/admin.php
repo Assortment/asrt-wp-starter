@@ -44,7 +44,7 @@ add_action( 'admin_menu', 'wpst_remove_menu_pages' );
 
 
 /**
- * Update meta-boxes throughout the admin area
+ * Remove default widgets
  ******************************************************************************/
 
 function wpst_unregister_widgets () {
