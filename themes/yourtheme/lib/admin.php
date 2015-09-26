@@ -7,23 +7,23 @@
  *
  * This file is used to create a baseline for the admin area.
  *
- * - Remove toolbar on front-end (appears when logged in)
- * - Remove pages (links, comments, etc)
- * - Remove default widgets
- * - Update meta-boxes throughout the admin area
- * - Remove emoji support
- * - Add/remove post type features
- * - Add ACF options page
- * - Update permalinks
- * - Allow SVG uploads
- * - Stop core updates from admin area
+ * $. Remove toolbar on front-end (appears when logged in)
+ * $. Remove pages (links, comments, etc)
+ * $. Remove default widgets
+ * $. Update meta-boxes throughout the admin area
+ * $. Remove emoji support
+ * $. Add/remove post type features
+ * $. Add ACF options page
+ * $. Update permalinks
+ * $. Allow SVG uploads
+ * $. Stop core updates from admin area
  *
  */
 
 
 
 /**
- * Remove toolbar on front-end (appears when logged in)
+ * $. Remove toolbar on front-end (appears when logged in)
  ******************************************************************************/
 
 add_filter( 'show_admin_bar', '__return_false' );
@@ -31,7 +31,7 @@ add_filter( 'show_admin_bar', '__return_false' );
 
 
 /**
- * Remove pages (links, comments, etc)
+ * $. Remove pages (links, comments, etc)
  ******************************************************************************/
 
 function wpst_remove_menu_pages () {
@@ -44,7 +44,7 @@ add_action( 'admin_menu', 'wpst_remove_menu_pages' );
 
 
 /**
- * Remove default widgets
+ * $. Remove default widgets
  ******************************************************************************/
 
 function wpst_unregister_widgets () {
@@ -72,7 +72,7 @@ add_action( 'widgets_init', 'wpst_unregister_widgets' );
 
 
 /**
- * Update meta-boxes throughout the admin area
+ * $. Update meta-boxes throughout the admin area
  ******************************************************************************/
 
 /**
@@ -118,7 +118,7 @@ add_action( 'manage_pages_custom_column', 'wpst_fill_id_column', 10, 2 );
 
 
 /**
- * Remove emoji support
+ * $. Remove emoji support
  ******************************************************************************/
 
 /**
@@ -152,7 +152,7 @@ add_action( 'init', 'wpst_remove_emoji' );
 
 
 /**
- * Add/remove post type features
+ * $. Add/remove post type features
  ******************************************************************************/
 
 function wpst_update_post_type_features() {
@@ -174,7 +174,7 @@ add_action( 'init', 'wpst_update_post_type_features' );
 
 
 /**
- * Add ACF options page
+ * $. Add ACF options page
  ******************************************************************************/
 
 if( function_exists('acf_add_options_page') ) {
@@ -184,7 +184,7 @@ if( function_exists('acf_add_options_page') ) {
 
 
 /**
- * Update permalinks
+ * $. Update permalinks
  ******************************************************************************/
 
 function wpst_set_permalinks () {
@@ -200,7 +200,7 @@ add_action( 'after_switch_theme' , 'wpst_set_permalinks', 10, 2 );
 
 
 /**
- * Allow SVG uploads
+ * $. Allow SVG uploads
  ******************************************************************************/
 
 function wpst_update_mime_types ( $mimes ){
@@ -214,7 +214,7 @@ add_filter( 'upload_mimes', 'wpst_update_mime_types' );
 
 
 /**
- * Stop core updates from admin area
+ * $. Stop core updates from admin area
  ******************************************************************************/
 
 $wpst_suppress_core_updates = function ( $a ) {

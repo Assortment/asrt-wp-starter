@@ -7,18 +7,18 @@
  *
  * This file is used to create a baseline for the front-end of the site.
  *
- * - Remove unnecessary meta/link tags
- * - Queue jQuery correctly
- * - Update image sizes
- * - Register Nav Menus
- * - Gravity forms
+ * $. Remove unnecessary meta/link tags
+ * $. Queue jQuery correctly
+ * $. Update image sizes
+ * $. Register Nav Menus
+ * $. Gravity forms
  *
  */
 
 
 
 /**
- * Remove unnecessary meta/link tags
+ * $. Remove unnecessary meta/link tags
  ******************************************************************************/
 
 remove_action( 'wp_head', 'rsd_link' );
@@ -35,7 +35,7 @@ remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 );
 
 
 /**
- * Queue jQuery correctly
+ * $. Queue jQuery correctly
  ******************************************************************************/
 
 function wpst_requeue_jquery () {
@@ -58,7 +58,7 @@ if ( !is_admin() ) {
 
 
 /**
- * Update image sizes
+ * $. Update image sizes
  ******************************************************************************/
 
 if ( get_option("medium_crop") === false ) {
@@ -76,7 +76,7 @@ if ( get_option("large_crop") === false ) {
 
 
 /**
- * Register Nav Menus
+ * $. Register Nav Menus
  ******************************************************************************/
 
 function wpst_register_nav_menus () {
@@ -94,7 +94,7 @@ add_action( 'init', 'wpst_register_nav_menus' );
 
 
 /**
- * Gravity forms
+ * $. Gravity forms
  ******************************************************************************/
 
 /**
