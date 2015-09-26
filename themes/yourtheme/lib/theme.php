@@ -10,9 +10,8 @@
  * - Remove unnecessary meta/link tags
  * - Queue jQuery correctly
  * - Update image sizes
- * - Gravity forms
  * - Register Nav Menus
- * - Create Nav Walker
+ * - Gravity forms
  *
  */
 
@@ -73,6 +72,24 @@ if ( get_option("large_crop") === false ) {
 } else {
     update_option("large_crop", "1");
 }
+
+
+
+/**
+ * Register Nav Menus
+ ******************************************************************************/
+
+function wpst_register_nav_menus () {
+    $args = array(
+        'primary'   => __( 'Primary' ),
+        'secondary' => __( 'Secondary' ),
+        'tertiary'  => __( 'Tertiary' )
+    );
+
+    register_nav_menus( $args );
+}
+
+add_action( 'init', 'wpst_register_nav_menus' );
 
 
 
