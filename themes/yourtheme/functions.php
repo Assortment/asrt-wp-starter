@@ -14,7 +14,7 @@
  * - Post Types
  * - Taxonomies
  * - Shortcodes
- * - Utility
+ * - Methods
  *
  */
 
@@ -26,11 +26,15 @@
 
 require_once( 'lib/admin.php' );
 
+
+
 /**
  * Theme
- ******************************************************************************/
+ *****************************************************************************/
 
 require_once( 'lib/theme.php' );
+
+
 
 /**
  * Post Types
@@ -38,11 +42,15 @@ require_once( 'lib/theme.php' );
 
 require_once( 'lib/post-types.php' );
 
+
+
 /**
  * Taxonomies
  ******************************************************************************/
 
 require_once( 'lib/taxonomies.php' );
+
+
 
 /**
  * Shortcodes
