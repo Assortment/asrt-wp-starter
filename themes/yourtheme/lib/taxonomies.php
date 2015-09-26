@@ -19,4 +19,4 @@
  * Example
  ******************************************************************************/
 
-require_once( 'lib/taxonomies/example.php' );
+//require_once( 'lib/taxonomies/example.php' );
