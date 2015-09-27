@@ -9,9 +9,39 @@
  * refer mainly to times when you want to pool the database, usually
  * through a `WP_Query` or `query_posts` function.
  *
- * $. Example Post-type query
- * $. Example Taxonomy query
+ * $. Post types
+ * $. Taxonomies
+ * $. Other
  *
  */
+
+
+
+/**
+ * Post types
+ ******************************************************************************/
+
+/**
+ * Get the example's posts
+ *
+ * @param  array $taxonomies Array for the taxonomy terms
+ * @param  [type] $quantity   [description]
+ * @return [type]             [description]
+ */
+function get_examples ($taxonomies, $quantity) {
+
+}
+
+
+
+/**
+ * Taxonomies
+ ******************************************************************************/
+
+
+
+/**
+ * Other
+ ******************************************************************************/
 
 
