@@ -9,8 +9,9 @@
  * refer mainly to times when you want to pool the database, usually
  * through a `WP_Query` or `query_posts` function.
  *
- * $. Post type examples
- * $. Example Taxonomy query
+ * $. Post types
+ * $. Taxonomies
+ * $. Other
  *
  */
 
@@ -76,3 +77,9 @@ function wpst_get_categories ( $parent = null ) {
     // Return the results
     return $output;
 }
+
+
+
+/**
+ * Other
+ ******************************************************************************/

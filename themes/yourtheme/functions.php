@@ -13,7 +13,7 @@
  * - Theme
  * - Post Types
  * - Taxonomies
- * - Methods
+ * - Queries
  * - Shortcodes
  *
  */
@@ -56,7 +56,7 @@ require_once( 'lib/taxonomies.php' );
  * Methods
  ******************************************************************************/
 
-require_once( 'lib/methods.php' );
+require_once( 'lib/queries.php' );
 
 
 
