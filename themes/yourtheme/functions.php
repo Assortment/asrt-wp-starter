@@ -9,59 +9,41 @@
  * The modifications should each be saved within their own partial, housed within
  * your 'lib' folder.
  *
- * - Admin
- * - Theme
- * - Post Types
- * - Taxonomies
- * - Queries
- * - Shortcodes
+ * - Configuration
+ * - Models
+ * - Controllers
+ * - Utility
  *
  */
 
 
 
 /**
- * Admin
+ * Configuration
  ******************************************************************************/
 
-require_once( 'lib/admin.php' );
+require_once( 'lib/config.php' );
 
 
 
 /**
- * Theme
+ * Models
  *****************************************************************************/
 
-require_once( 'lib/theme.php' );
+require_once( 'lib/models.php' );
 
 
 
 /**
- * Post Types
+ * Controllers
  ******************************************************************************/
 
-require_once( 'lib/post-types.php' );
+require_once( 'lib/controllers.php' );
 
 
 
 /**
- * Taxonomies
+ * Utility
  ******************************************************************************/
 
-require_once( 'lib/taxonomies.php' );
-
-
-
-/**
- * Methods
- ******************************************************************************/
-
-require_once( 'lib/queries.php' );
-
-
-
-/**
- * Shortcodes
- ******************************************************************************/
-
-require_once( 'lib/shortcodes.php' );
+require_once( 'lib/utility.php' );
