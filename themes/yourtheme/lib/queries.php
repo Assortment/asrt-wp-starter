@@ -83,3 +83,6 @@ function wpst_get_categories ( $parent = null ) {
 /**
  * Other
  ******************************************************************************/
+
+// Add other query sections here.
+// For example WordPress users and other meta data.
