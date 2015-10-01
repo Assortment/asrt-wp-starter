@@ -21,7 +21,7 @@ get_header();
  * @var string
  */
 $home_title   = get_the_title( 1 );
-$home_excerpt = get_excerpt_by_id( 1 );
+$home_excerpt = wpst_get_excerpt_by_id( 1 );
 
 ?>
 
