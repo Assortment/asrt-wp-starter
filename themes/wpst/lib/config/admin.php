@@ -217,13 +217,13 @@ add_filter( 'upload_mimes', 'wpst_update_mime_types' );
  * $. Stop core updates from admin area
  ******************************************************************************/
 
-$wpst_suppress_core_updates = function ( $a ) {
+function wpst_stop_core_updates ( $a ) {
     global $wp_version;
 
     return (object) array(
         'last_checked' => time(),
         'version_checked' => $wp_version,
     );
-};
+}
 
-add_filter( 'pre_site_transient_update_core', $wpst_suppress_core_updates );
+add_filter( 'pre_site_transient_update_core', 'wpst_stop_core_updates' );
