@@ -31,7 +31,7 @@
  * @param  int     $id  The ID of the post
  * @return string       The post's excerpt
  */
-function get_excerpt_by_id( $id ) {
+function get_excerpt_by_id ( $id ) {
 
     // Get current post
     $page = get_post($id);

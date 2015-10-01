@@ -14,7 +14,7 @@
 
 
 
-function wpst_post_type_example() {
+function wpst_post_type_example () {
     register_post_type(
         'example',
         array(

@@ -18,7 +18,7 @@
  * $. Shortcodes
  ******************************************************************************/
 
-require_once('utility/shortcodes/reset.php');
+require_once( 'utility/shortcodes/reset.php' );
 
 
 
@@ -26,4 +26,4 @@ require_once('utility/shortcodes/reset.php');
  * $. Helpers
  ******************************************************************************/
 
-require_once('utility/helpers.php');
+require_once( 'utility/helpers.php' );

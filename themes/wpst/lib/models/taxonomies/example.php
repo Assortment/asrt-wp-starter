@@ -12,7 +12,7 @@
 
 
 
-function wpst_taxonomy_example() {
+function wpst_taxonomy_example () {
     register_taxonomy(
         'example',
         array( 'post-type' ),
