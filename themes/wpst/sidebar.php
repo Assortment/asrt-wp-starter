@@ -12,15 +12,8 @@
  */
 
 /**
- * Excluded page ID's
- *
- * @var array|int
- */
-$excluded = array();
-
-/**
- * Only display sidebar if the current template has children
- * or isn't a child itself.
+ * Only display sidebar if the current template has children or
+ * isn't a child itself.
  */
 if ( $post->post_parent > 0 || has_children() ): ?>
     <aside class="sidebar" role="complementary">
@@ -29,62 +22,15 @@ if ( $post->post_parent > 0 || has_children() ): ?>
         /**
          * Get page ID of post or posts parent depending of if this $post
          * is a child or parent
-         *
-         * @var int
          */
         $page_id = ( $post->post_parent > 0 ) ? $post->post_parent : $post->ID;
 
-        /**
-         * Get all pages that match arguments below
-         *
-         * @var object $post
-         */
-        $list_args = array(
-            'parent'       => $page_id,
-            'post_type'    => 'page',
-            'exclude'      => $excluded,
-            'sort_order'   => 'ASC',
-            'sort_column'  => 'menu_order'
-        );
+        // Get pages
+        $children = wpst_get_pages( $page_id );
 
-        $list_pages = get_pages( $list_args );
+        // Get view
+        get_template_part('views/partials/list-children');
 
-        /**
-         * If pages exist
-         */
-        if ( $list_pages ): ?>
-            <article class="sidebar__section">
-                In this section:
-
-                <nav>
-                    <?php
-
-                    /**
-                     * Loop through pages
-                     */
-                    foreach ( $list_pages as $post ):
-
-                        /**
-                         * Setup post data
-                         */
-                        setup_postdata( $post );
-
-                        /**
-                         * Get page URL
-                         */
-                        $page_url = get_permalink( $page->ID );
-
-                        ?>
-
-                        <li class="<?php echo is_page( $page->ID ) ? 'is-current' : ''; ?>">
-                            <a href="<?php echo $page_url; ?>">
-                                <?php echo $page->post_title; ?>
-                            </a>
-                        </li>
-                    <?php endforeach; ?>
-                    <?php wp_reset_postdata(); ?>
-                </nav>
-            </article>
-        <?php endif; ?>
+        ?>
     </aside>
 <?php endif; ?>
