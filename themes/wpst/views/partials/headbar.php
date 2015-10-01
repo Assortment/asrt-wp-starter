@@ -19,7 +19,7 @@
 <header class="header">
     <div class="container">
         <a href="/" class="logo | header__logo">
-            yourtheme
+            <?php bloginfo( 'name' ); ?>
         </a>
 
         <nav class="nav-container | header__nav" id="navigation" role="navigation">
