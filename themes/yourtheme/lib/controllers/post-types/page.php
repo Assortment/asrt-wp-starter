@@ -2,23 +2,20 @@
 
 /**
  *******************************************************************************
- * Queries
+ * Post type queries: Page
  *******************************************************************************
  *
- * A hub for all the different queries your project will need. Queries
- * refer mainly to times when you want to pool the database, usually
- * through a `WP_Query` or `query_posts` function.
+ * A set of functions to access the Page post type results.
  *
- * $. Post types
- * $. Taxonomies
- * $. Other
+ * $. Getters
+ * $. Setters
  *
  */
 
 
 
 /**
- * $. Post types
+ * $. Getters
  ******************************************************************************/
 
 /**
@@ -52,37 +49,7 @@ function wpst_get_pages ( $parent = null ) {
 
 
 /**
- * $. Taxonomies
+ * $. Setters
  ******************************************************************************/
 
-/**
- * Get category terms.
- *
- * @param  int   | Define the parent page of the pages you're getting.
- * @return array | Array of Category objects.
- */
-function wpst_get_categories ( $parent = null ) {
-
-    // Define arguments for query.
-    $args = array();
-
-    // If param is declared, add to arguments
-    if( !is_null($parent) ):
-        $args['parent'] = $parent;
-    endif;
-
-    // New instance of WP_Query class.
-    $output = get_categories( $args );
-
-    // Return the results
-    return $output;
-}
-
-
-
-/**
- * Other
- ******************************************************************************/
-
-// Add other query sections here.
-// For example WordPress users and other meta data.
+// Add new page to post type through function here.

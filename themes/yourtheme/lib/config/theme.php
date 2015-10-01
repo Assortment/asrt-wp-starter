@@ -10,6 +10,7 @@
  * $. Remove unnecessary meta/link tags
  * $. Queue jQuery correctly
  * $. Update image sizes
+ * $. Update functions to HTML5
  * $. Register Nav Menus
  * $. Gravity forms
  *
@@ -68,10 +69,16 @@ if ( get_option("medium_crop") === false ) {
 }
 
 if ( get_option("large_crop") === false ) {
-    add_option("large_crop", "1")
+    add_option("large_crop", "1");
 } else {
     update_option("large_crop", "1");
 }
+
+/**
+ * $. Update functions to HTML5
+ ******************************************************************************/
+
+add_theme_support('html5', ['caption', 'comment-form', 'comment-list', 'gallery']);
 
 
 
