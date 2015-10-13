@@ -16,10 +16,7 @@
 // Get the header
 get_header();
 
-/**
- * Get content from 'blog' page in CMS by its ID
- * @var string
- */
+// Define fields from static 'blog' page in WordPress based on page ID
 $home_title   = get_the_title( 1 );
 $home_excerpt = wpst_get_excerpt_by_id( 1 );
 

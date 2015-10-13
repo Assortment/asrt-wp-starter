@@ -6,31 +6,23 @@
  ***************************************************************************
  *
  * The sidebar is used to define any side-information to be presented
- * for a template. Think categories and tags from a blog listing
- * template.
+ * for a template. Think categories from a blog listing template and
+ * related/children for pages.
  *
  */
 
-/**
- * Only display sidebar if the current template has children or
- * isn't a child itself.
- */
-if ( $post->post_parent > 0 || has_children() ): ?>
-    <aside class="sidebar" role="complementary">
-        <?php
 
-        /**
-         * Get page ID of post or posts parent depending of if this $post
-         * is a child or parent
-         */
-        $page_id = ( $post->post_parent > 0 ) ? $post->post_parent : $post->ID;
 
-        // Get pages
-        $children = wpst_get_pages( $page_id );
+?>
 
-        // Get view
-        get_template_part('views/partials/list-children');
-
-        ?>
-    </aside>
-<?php endif; ?>
+<aside class="sidebar" role="complementary">
+    <article class="sidebar__section">
+        <h1>Section Heading:</h1>
+        <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 1</a></li>
+        </ul>
+    </article> <!-- .sidebar__section -->
+</aside>
