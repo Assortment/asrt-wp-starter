@@ -35,7 +35,7 @@ get_header();
                 </article>
             <?php endwhile; ?>
         <?php else: ?>
-            <?php // page not found ?>
+            <?php get_template_part('views/errors/404-posts'); ?>
         <?php endif; ?>
     </div>
     <!-- .container -->

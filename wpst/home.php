@@ -42,7 +42,7 @@ $home_excerpt = wpst_get_excerpt_by_id( 1 );
                 <?php get_template_part('views/post/index'); ?>
             <?php endwhile; ?>
         <?php else: ?>
-            <?php get_template_part( 'partials/not-found' ); ?>
+            <?php get_template_part( 'views/errors/404-posts' ); ?>
         <?php endif; ?>
 
     </div>

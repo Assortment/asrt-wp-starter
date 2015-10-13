@@ -19,7 +19,7 @@ get_header();
 <main class="section">
     <div class="container">
 
-        <!-- Post/Page not found -->
+        <?php get_template_part('views/errors/404-page'); ?>
 
     </div> <!-- .container -->
 </main>
