@@ -2,7 +2,7 @@
 
 /**
  ***************************************************************************
- * Partial: Head
+ * Partial: Header
  ***************************************************************************
  *
  * This partial is used to define the markup for the site's global header

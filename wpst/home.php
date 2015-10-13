@@ -39,13 +39,7 @@ $home_excerpt = wpst_get_excerpt_by_id( 1 );
             <?php while ( have_posts() ): ?>
                 <?php the_post(); ?>
 
-                <article>
-                    <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-
-                    <?php if ( $post->post_excerpt ): ?>
-                        <?php echo get_the_excerpt(); ?>
-                    <?php endif; ?>
-                </article>
+                <?php get_template_part('views/post/index'); ?>
             <?php endwhile; ?>
         <?php else: ?>
             <?php get_template_part( 'partials/not-found' ); ?>

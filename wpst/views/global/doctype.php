@@ -2,7 +2,7 @@
 
 /**
  ***************************************************************************
- * Partial: Meta
+ * Partial: Doctype
  ***************************************************************************
  *
  * This partial is used to house all the information for the site's <head>

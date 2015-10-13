@@ -17,7 +17,7 @@
 
 
 // Meta Information
-get_template_part( 'views/partials/meta' );
+get_template_part( 'views/global/doctype' );
 
 // Header
-get_template_part( 'views/partials/headbar' );
+get_template_part( 'views/global/header' );
