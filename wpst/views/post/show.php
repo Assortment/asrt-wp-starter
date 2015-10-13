@@ -5,7 +5,7 @@
  * Partial: Posts Show
  ***************************************************************************
  *
- * Display the Posts' single.php information.
+ * Display the Post's single.php information.
  *
  */
 
