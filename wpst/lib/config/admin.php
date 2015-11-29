@@ -13,7 +13,6 @@
  * $. Update meta-boxes throughout the admin area
  * $. Remove emoji support
  * $. Add/remove post type features
- * $. Add ACF options page
  * $. Update permalinks
  * $. Allow SVG uploads
  * $. Stop core updates from admin area
@@ -170,16 +169,6 @@ function wpst_update_post_type_features() {
 }
 
 add_action( 'init', 'wpst_update_post_type_features' );
-
-
-
-/**
- * $. Add ACF options page
- ******************************************************************************/
-
-if( function_exists('acf_add_options_page') ) {
-    acf_add_options_page();
-}
 
 
 

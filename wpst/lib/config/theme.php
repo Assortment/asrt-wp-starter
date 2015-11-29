@@ -95,35 +95,3 @@ if ( get_option("large_crop") === false ) {
  ******************************************************************************/
 
 add_theme_support('html5', ['caption', 'comment-form', 'comment-list', 'gallery']);
-
-
-
-/**
- * $. Gravity forms
- ******************************************************************************/
-
-/**
- * Better validation message
- */
-function wpst_update_validation_message( $msg, $form ){
-    $output  = '<div class="alert alert--error">';
-    $output .= '<strong>Error:</strong> Please complete the required fields and try again';
-    $output .= '</div>';
-
-    return $output;
-}
-
-add_filter( 'gform_validation_message', 'wpst_update_validation_message', 10, 2 );
-
-/**
- * Update the Form submit button
- */
-function wpst_gforms_submit_button( $btn, $form ){
-    $output  = '<button type="submit" class="btn btn--primary" id="gform_submit_button_' . $form['id'] . '">';
-    $output .= $form['button']['text'];
-    $output .= '</button>';
-
-    return $output;
-}
-
-add_filter( 'gform_submit_button', 'wpst_gforms_submit_button', 10, 2 );
