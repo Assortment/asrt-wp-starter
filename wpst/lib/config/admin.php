@@ -203,7 +203,7 @@ add_action( 'after_switch_theme' , 'wpst_set_permalinks', 10, 2 );
  * $. Allow SVG uploads
  ******************************************************************************/
 
-function wpst_update_mime_types ( $mimes ){
+function wpst_update_mime_types ( $mimes ) {
     $mimes['svg'] = 'image/svg+xml';
 
     return $mimes;

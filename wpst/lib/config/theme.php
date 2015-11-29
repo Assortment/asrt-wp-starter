@@ -9,7 +9,8 @@
  *
  * $. Remove unnecessary meta/link tags
  * $. Queue jQuery correctly
- * $. Update image sizes
+ * $. Update default image sizes
+ * $. Create custom image sizes
  * $. Update functions to HTML5
  * $. Register Nav Menus
  * $. Gravity forms
@@ -59,7 +60,7 @@ if ( !is_admin() ) {
 
 
 /**
- * $. Update image sizes
+ * $. Update default image sizes
  ******************************************************************************/
 
 if ( get_option("medium_crop") === false ) {
@@ -73,6 +74,21 @@ if ( get_option("large_crop") === false ) {
 } else {
     update_option("large_crop", "1");
 }
+
+
+
+/**
+ * $. Create custom image sizes
+ ******************************************************************************/
+
+/**
+ * This is an example, use once needed. Further info see:
+ * https://developer.wordpress.org/reference/functions/add_image_size/
+ */
+
+// add_image_size('banner', 1200, 400, true);
+
+
 
 /**
  * $. Update functions to HTML5
