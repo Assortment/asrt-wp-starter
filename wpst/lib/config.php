@@ -9,8 +9,9 @@
  * side of the site. Creating defaults, resetting WordPress logic and
  * enabling new features/techniques.
  *
- * - Admin
- * - Theme
+ * $. Admin
+ * $. Theme
+ * $. Navigation
  *
  */
 
@@ -29,3 +30,11 @@ require_once( 'config/admin.php' );
  ******************************************************************************/
 
 require_once( 'config/theme.php' );
+
+
+
+/**
+ * Navigation
+ ******************************************************************************/
+
+require_once( 'config/navigation.php' );

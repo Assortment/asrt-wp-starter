@@ -99,24 +99,6 @@ add_theme_support('html5', ['caption', 'comment-form', 'comment-list', 'gallery'
 
 
 /**
- * $. Register Nav Menus
- ******************************************************************************/
-
-function wpst_register_nav_menus () {
-    $args = array(
-        'primary'   => __( 'Primary' ),
-        'secondary' => __( 'Secondary' ),
-        'tertiary'  => __( 'Tertiary' )
-    );
-
-    register_nav_menus( $args );
-}
-
-add_action( 'init', 'wpst_register_nav_menus' );
-
-
-
-/**
  * $. Gravity forms
  ******************************************************************************/
 
