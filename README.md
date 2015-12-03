@@ -37,6 +37,7 @@ Here's a birds eye view of the structure:
 - view
     - errors
     - globals
+    - vendors
     - %post-types%
     - %taxonomies%
 - index.php
