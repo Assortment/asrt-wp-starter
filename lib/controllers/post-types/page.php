@@ -30,8 +30,8 @@ function wpst_get_pages ( $parent = null ) {
     $args = array(
         'post_type'    => 'page',
         'post_parent'  => 0,
-        'sort_order'   => 'ASC',
-        'sort_column'  => 'menu_order'
+        'order'        => $order_by,
+        'orderby'      => 'ID'
     );
 
     // If param is declared, override the 'post_parent' argument
