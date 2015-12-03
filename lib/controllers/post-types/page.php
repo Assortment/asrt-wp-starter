@@ -25,7 +25,7 @@
  * @param  int     $count   Number of posts you'd like to bring through.
  * @return object           WP_Query instance
  */
-function wpst_get_pages ( $parent = null, $count = -1 ) {
+function wpst_get_pages ( $parent = false, $count = -1 ) {
 
     // Define arguments for query.
     $args = array(
@@ -37,7 +37,7 @@ function wpst_get_pages ( $parent = null, $count = -1 ) {
     );
 
     // If param is declared, override the 'post_parent' argument
-    if( !is_null($parent) ):
+    if( $parent ):
         $args['post_parent'] = $parent;
     endif;
 
