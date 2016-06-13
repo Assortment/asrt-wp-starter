@@ -9,6 +9,7 @@
  *
  * $. Remove unnecessary meta/link tags
  * $. Remove & disable JSON API
+ * $. Remove oembed scripts
  * $. Queue jQuery correctly
  * $. Update default image sizes
  * $. Create custom image sizes
@@ -66,6 +67,18 @@ function wpst_remove_json_api () {
 }
 
 add_action( 'after_setup_theme', 'wpst_remove_json_api' );
+
+
+
+/**
+ * $. Remove oembed scripts from frontend
+ ******************************************************************************/
+
+function wpst_deregister_oembed() {
+    wp_deregister_script( 'wp-embed' );
+}
+
+add_action( 'wp_footer', 'wpst_deregister_oembed' );
 
 
 
