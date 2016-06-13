@@ -8,6 +8,7 @@
  * This file is used to create a baseline for the front-end of the site.
  *
  * $. Remove unnecessary meta/link tags
+ * $. Remove & disable JSON API
  * $. Queue jQuery correctly
  * $. Update default image sizes
  * $. Create custom image sizes
@@ -33,6 +34,38 @@ remove_action( 'wp_head', 'index_rel_link' );
 remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
 remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
 remove_action( 'wp_head', 'adjacent_posts_rel_link', 10, 0 );
+
+
+
+/**
+ * $. Remove & disable JSON API
+ ******************************************************************************/
+
+function wpst_remove_json_api () {
+
+    /**
+     * Remove API scripts from header/footer
+     */
+
+    remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
+    remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
+    remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
+    remove_action( 'wp_head', 'wp_oembed_add_host_js' );
+    remove_action( 'rest_api_init', 'wp_oembed_register_route' );
+    remove_filter( 'oembed_dataparse', 'wp_filter_oembed_result', 10 );
+    add_filter( 'embed_oembed_discover', '__return_false' );
+
+    /**
+     * Disable API from working all together
+     */
+
+    add_filter('json_enabled', '__return_false');
+    add_filter('rest_enabled', '__return_false');
+    add_filter('json_jsonp_enabled', '__return_false');
+    add_filter('rest_jsonp_enabled', '__return_false');
+}
+
+add_action( 'after_setup_theme', 'wpst_remove_json_api' );
 
 
 
