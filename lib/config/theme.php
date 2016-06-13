@@ -62,9 +62,24 @@ function wpst_remove_json_api () {
     add_filter('rest_enabled', '__return_false');
     add_filter('json_jsonp_enabled', '__return_false');
     add_filter('rest_jsonp_enabled', '__return_false');
+
+    // Remove pingback
+    remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
+    remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
+    remove_action( 'template_redirect', 'rest_output_link_header', 11 );
 }
 
-add_action( 'after_setup_theme', 'wpst_remove_json_api' );
+add_action( 'init', 'wpst_remove_json_api' );
+
+/**
+ * Remove pingback headers
+ */
+function wpst_unset_wp_pingback($headers) {
+    unset($headers['X-Pingback']);
+    return $headers;
+}
+
+add_filter( 'wp_headers', 'wpst_unset_wp_pingback' );
 
 
 
