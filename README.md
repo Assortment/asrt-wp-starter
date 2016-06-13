@@ -3,12 +3,6 @@ A logical approach to WordPress Theme Development
 
 wpst is a starter kit, boilerplate, toolkit type thing for WordPress which provides a little more of a structured approach to Theme Development.
 
-## This is a WIP. Do not use.
-
-Yeah, its definitely not finished.
-
-![](http://media.giphy.com/media/8VjzJcIMSMF20/giphy.gif)
-
 ## Installation
 You can install *wpst* like any other WordPress theme. Download the [latest release](https://github.com/Mixd/wpst/archive/master.zip) of this project and then uncompress it into your theme folder.
 
