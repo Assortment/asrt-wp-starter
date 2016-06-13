@@ -11,10 +11,8 @@
  * $. Remove & disable JSON API
  * $. Remove oembed scripts
  * $. Queue jQuery correctly
- * $. Update default image sizes
- * $. Create custom image sizes
+ * $. Update image sizes
  * $. Update functions to HTML5
- * $. Register Nav Menus
  * $. Gravity forms
  *
  */
@@ -106,7 +104,7 @@ if ( !is_admin() ) {
 
 
 /**
- * $. Update default image sizes
+ * $. Update image sizes
  ******************************************************************************/
 
 if ( get_option("medium_crop") === false ) {
@@ -121,18 +119,12 @@ if ( get_option("large_crop") === false ) {
     update_option("large_crop", "1");
 }
 
-
-
 /**
- * $. Create custom image sizes
- ******************************************************************************/
-
-/**
- * This is an example, use once needed. Further info see:
- * https://developer.wordpress.org/reference/functions/add_image_size/
+ * This is an example on how to create a new image size. Please look at
+ * https://developer.wordpress.org/reference/functions/add_image_size/ for more info.
  */
 
-// add_image_size('banner', 1200, 400, true);
+//add_image_size('banner', 429, 280, true);
 
 
 
