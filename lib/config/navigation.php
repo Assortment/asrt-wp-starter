@@ -85,7 +85,11 @@ add_filter( 'nav_menu_css_class' , 'wpst_nav_special_classes', 10, 2 );
  */
 function wpst_nav_link_attributes( $atts, $item, $args ) {
     // Manipulate attributes
-    $atts['class'] .= 'nav__link';
+    if( isset($atts['class']) ):
+        $atts['class'] .= 'nav__link';
+    else:
+        $atts['class'] = 'nav__link';
+    endif;
 
     return $atts;
 }
