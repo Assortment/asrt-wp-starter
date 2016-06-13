@@ -10,12 +10,12 @@ Yeah, its definitely not finished.
 ![](http://media.giphy.com/media/8VjzJcIMSMF20/giphy.gif)
 
 ## Installation
-You can install *wpst* like any other WordPress theme. Download the [latest release](https://github.com/Assortment/wpst/archive/master.zip) of this project and then uncompress it into your theme folder.
+You can install *wpst* like any other WordPress theme. Download the [latest release](https://github.com/Mixd/wpst/archive/master.zip) of this project and then uncompress it into your theme folder.
 
 If you're working with wp-cli then you can also use the `wp theme install` command that it allows you to automate this process some. Here's how you can do that:
 
 1. Within your CLI `cd` into your project folder (i.e. `cd ~/sites/<projectname>`, where `<projectname>` is the name of your sites directory)
-2. Run the following command `wp theme install https://github.com/Assortment/wpst/archive/master.zip`.
+2. Run the following command `wp theme install https://github.com/Mixd/wpst/archive/master.zip`.
 
 ## Usage
 
