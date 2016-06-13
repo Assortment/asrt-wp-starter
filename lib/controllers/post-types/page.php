@@ -25,23 +25,18 @@
  * @param  int     $count   Number of posts you'd like to bring through.
  * @return object           WP_Query instance
  */
-function wpst_get_pages ( $parent = false, $count = -1 ) {
+function wpst_get_pages ( $parent = 0, $count = -1, $orderby = 'menu_order', $order = 'ASC' ) {
 
     // Define arguments for query.
     $args = array(
         'post_type'      => 'page',
-        'post_parent'    => 0,
+        'post_parent'    => $parent,
         'posts_per_page' => $count,
-        'order'          => $order_by,
-        'orderby'        => 'ID'
+        'orderby'        => $orderby,
+        'order'          => $order
     );
 
-    // If param is declared, override the 'post_parent' argument
-    if( $parent ):
-        $args['post_parent'] = $parent;
-    endif;
-
-    // New instance of WP_Query class.
+    // Create new instance of WP_Query class.
     $output = new WP_Query( $args );
 
     // Return the results
