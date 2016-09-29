@@ -29,7 +29,7 @@
     <link rel="canonical" href="<?php echo get_bloginfo('url'); ?>" />
 
     <!-- Favicons -->
-    <?php get_template_part( 'parts/favicons' ); ?>
+    <?php get_template_part( 'views/globals/favicons' ); ?>
 
     <!-- Styles -->
     <!--[if IE 9]><!-->
