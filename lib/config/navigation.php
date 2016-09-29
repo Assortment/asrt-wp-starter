@@ -60,7 +60,7 @@ add_filter( 'nav_menu_item_id', 'wpst_nav_strip_id' );
  * Remove all wp_nav_menu() classes (and add .is-current)
  */
 function wpst_nav_strip_classes( $a ){
-    return ( in_array( 'current_page_item', $a ) ) ? array( 'nav__item', 'is-current' ) : array('nav__item');
+    return ( in_array( 'current_menu_item', $a ) ) ? array( 'nav__item', 'is-current' ) : array('nav__item');
 }
 
 add_filter( 'nav_menu_css_class', 'wpst_nav_strip_classes', 10, 2 );
