@@ -1,12 +1,18 @@
-<footer>
-    <div class="container">
-        Footer
-    </div>
-</footer>
+<?php
 
-<?php wp_footer(); ?>
+/**
+ ***************************************************************************
+ * Footer
+ ***************************************************************************
+ *
+ * The footer.php is created to house all the global information you need
+ * within the site's footer.
+ *
+ * This template is accessible via the get_footer() WP function and
+ * includes the site's wp_footer(); function.
+ *
+ */
 
-<!-- With <3 from Mixd - http://mixd.co.uk -->
 
-</body>
-</html>
+// Footer
+get_template_part( 'views/globals/footer' );
