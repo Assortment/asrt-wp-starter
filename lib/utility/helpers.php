@@ -43,3 +43,22 @@ function wpst_get_excerpt_by_id ( $id ) {
     return $excerpt;
 }
 
+/**
+ * Adding a cache busting parameter of the theme's current
+ * version to the end of a file.
+ *
+ * @param  string  $url  The URL of the file to modify
+ * @return  string  The updated file URL
+ */
+function wpst_file_cache_busting ($url) {
+	// Get theme info
+	$theme = wp_get_theme();
+	$theme_version = $theme->get('Version');
+
+	$output = $url . '?ver=' . $theme_version;
+
+	return $output;
+}
+
+
+

@@ -10,7 +10,7 @@
  * $. Remove unnecessary meta/link tags
  * $. Remove & disable JSON API
  * $. Remove oembed scripts
- * $. Queue jQuery correctly
+ * $. Enqueue scripts
  * $. Update image sizes
  * $. Update functions to HTML5
  * $. Gravity forms
@@ -96,25 +96,23 @@ add_action( 'wp_footer', 'wpst_deregister_oembed' );
 
 
 /**
- * $. Queue jQuery correctly
+ * $. Enqueue scripts
  ******************************************************************************/
 
-function wpst_requeue_jquery () {
-    $js_head = get_stylesheet_directory_uri() . '/assets/dist/js/head.min.js';
-    $js_main = get_stylesheet_directory_uri() . '/assets/dist/js/main.min.js';
+function wpst_enqueue_scripts() {
+    $js_head = wpst_file_cache_busting(get_stylesheet_directory_uri() . '/assets/dist/js/head.min.js');
+    $js_main = wpst_file_cache_busting(get_stylesheet_directory_uri() . '/assets/dist/js/main.min.js');
 
     wp_deregister_script( 'jquery' );
 
-    wp_register_script( 'jquery', $js_head, '', '', false );
+    wp_register_script( 'jquery', $js_head, '', null, false );
     wp_enqueue_script( 'jquery' );
 
-    wp_register_script( 'js-main', $js_main, '', '', true );
+    wp_register_script( 'js-main', $js_main, '', null, true );
     wp_enqueue_script( 'js-main' );
 }
 
-if ( !is_admin() ) {
-    add_action( 'wp_enqueue_scripts', 'wpst_requeue_jquery', 11 );
-}
+add_action( 'wp_enqueue_scripts', 'wpst_enqueue_scripts', 11 );
 
 
 
