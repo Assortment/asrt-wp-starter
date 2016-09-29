@@ -33,11 +33,11 @@
 
     <!-- Styles -->
     <!--[if IE 9]><!-->
-    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/styles.css">
+    <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/dist/css/styles.css">
     <!--<![endif]-->
 
     <!--[if lte IE 8]>
-        <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/ie.css" media="screen">
+        <link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/dist/css/ie.css" media="screen">
     <![endif]-->
 
     <!-- @font-face declarations -->
