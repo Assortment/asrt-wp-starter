@@ -100,8 +100,8 @@ add_action( 'wp_footer', 'wpst_deregister_oembed' );
  ******************************************************************************/
 
 function wpst_requeue_jquery () {
-    $js_head = get_stylesheet_directory_uri() . '/assets/js/min/head.min.js';
-    $js_main = get_stylesheet_directory_uri() . '/assets/js/min/main.min.js';
+    $js_head = get_stylesheet_directory_uri() . '/assets/dist/js/head.min.js';
+    $js_main = get_stylesheet_directory_uri() . '/assets/dist/js/main.min.js';
 
     wp_deregister_script( 'jquery' );
 
