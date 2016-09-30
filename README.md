@@ -15,6 +15,7 @@ Sounds fancy, what does it actually provide though?
 - **Mimicing the MVC structure**: Keep your logic away from your templates and database changes.
 - **Separation of functional concerns**: Nobody wants one file to do everything from adding your menus to creating shortcodes.
 - **Free from conflicts**: All functions are prefixed to alleviate any naming conflicts.
+- **Semantic versioning & Cache busting** Changing your themes version number will allow you to ensure any styles and scripts are cache-free.
 
 ## Requirements
 
@@ -36,6 +37,7 @@ Things we'd love to get working in the very near future.
 
 - **Support for PHP7
 - **[Page template names in WordPress columns](https://github.com/Mixd/wpst/issues/23)**
+- Further usage guides
 
 ## Installation
 
