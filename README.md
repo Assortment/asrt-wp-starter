@@ -7,6 +7,15 @@ WPST is a boilerplate for WordPress which provides a structured foundation for D
 
 One of its key features is in its folder structure, which has been engineered to mimic the Model, View, Controller methodology. Whilst not a true representation, it does allow for a more logical grouping of functionality.
 
+## Features
+
+Sounds fancy, what does it actually provide though?
+
+- **Front-end agnostic**: Allowing you to couple any CSS framework you or your company prefer.
+- **Mimicing the MVC structure**: Keep your logic away from your templates and database changes.
+- **Separation of functional concerns**: Nobody wants one file to do everything from adding your menus to creating shortcodes.
+- **Free from conflicts**: All functions are prefixed to alleviate any naming conflicts.
+
 ## Requirements
 
 - **WordPress 4.5.3+**: First and foremost, this is a WordPress theme and is required to be installed as such.
