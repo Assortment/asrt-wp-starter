@@ -21,6 +21,13 @@ Most of the following is untested rather than unsupported, which will change as 
 
 Want to support these? Create a fork of the project, let us know and once vetted we'll happily provide a link in here to your project.
 
+## Roadmap
+
+Things we'd love to get working in the very near future.
+
+- **Support for PHP7**
+- **[Page template names in WordPress columns](https://github.com/Mixd/wpst/issues/23)**
+
 ## Installation
 
 Take a look at the [Installation Guide](https://github.com/Mixd/wp-deploy/wiki/Installation).
