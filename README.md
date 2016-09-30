@@ -47,14 +47,6 @@ Take a look at the [Installation Guide](https://github.com/Mixd/wp-deploy/wiki/I
 
 Take a look at the [Usage Guide](https://github.com/Mixd/wp-deploy/wiki/Usage).
 
-## FAQ
-
-Take a look at the [Frequently Asked Questions](https://github.com/Mixd/wp-deploy/wiki/FAQ).
-
-## Contributing
-
-Take a look at the [Contributing guide](https://github.com/Mixd/wp-deploy/wiki/Contributing)
-
 ## Credits
 
 This project is under constant development by the [Mixd](http://www.mixd.co.uk) team. Like it? Hate it? Let us know on [Twitter](http://twitter.com/mixd).
