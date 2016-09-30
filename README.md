@@ -35,7 +35,7 @@ Want to support these? Create a fork of the project, let us know and once vetted
 
 Things we'd love to get working in the very near future.
 
-- **Support for PHP7
+- **Support for PHP7**
 - **[Page template names in WordPress columns](https://github.com/Mixd/wpst/issues/23)**
 - Further usage guides
 
