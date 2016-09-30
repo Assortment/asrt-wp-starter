@@ -5,7 +5,7 @@ A logical approach to WordPress Theme Development
 
 WPST is a boilerplate for WordPress which provides a structured foundation for Developers who are a looking to use higher-level concepts found in popular PHP frameworks such as Laravel and Symfony.
 
-One of its key features is in its folder structure, which has been engineered to mimic the Model, View, Controller concepts that everyone is used to. Whilst not a true representation, it does allow for a more logical grouping of functionality.
+One of its key features is in its folder structure, which has been engineered to mimic the Model, View, Controller methodology. Whilst not a true representation, it does allow for a more logical grouping of functionality.
 
 ## Requirements
 
@@ -25,7 +25,7 @@ Want to support these? Create a fork of the project, let us know and once vetted
 
 Things we'd love to get working in the very near future.
 
-- **Support for PHP7**
+- **Support for PHP7
 - **[Page template names in WordPress columns](https://github.com/Mixd/wpst/issues/23)**
 
 ## Installation
