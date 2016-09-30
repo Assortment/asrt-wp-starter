@@ -41,11 +41,11 @@ Things we'd love to get working in the very near future.
 
 ## Installation
 
-Take a look at the [Installation Guide](https://github.com/Mixd/wp-deploy/wiki/Installation).
+Take a look at the [Installation Guide](https://github.com/Mixd/wpst/wiki/Installation).
 
 ## Usage
 
-Take a look at the [Usage Guide](https://github.com/Mixd/wp-deploy/wiki/Usage).
+Take a look at the [Usage Guide](https://github.com/Mixd/wpst/wiki/Usage).
 
 ## Credits
 
