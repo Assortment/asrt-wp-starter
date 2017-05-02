@@ -2,14 +2,16 @@
 
 /**
  ***************************************************************************
- * Example Custom Template
+ * Example Template
  ***************************************************************************
  *
- * All custom templates should be prefixed with `tpl-` for navigation
- * purposes. To associate this template with WordPress, write the
- * template name underneath like so.
+ * All template filenames should be prefixed with `tpl-` to help group them
+ * within the theme. Prefix your template name with either 'Admin' or 'Theme':
+ * - Admin = doesn't use the usual excerpt/content (aka. set and forget)
+ * - Theme = something the client can actively use.
  *
- * Template Name: Example
+ * Template Name: Theme - Example
+ * Template Post Type: page
  *
  */
 
