@@ -105,5 +105,104 @@ function wpst_file_cache_busting ($url) {
 	return $output;
 }
 
+/**
+* Generate an archive for use in sidebars for any given post type.
+*
+* @param string $post_type
+* @param string $custom_field_key
+* @param string $format
+* @param int $limit
+* @return array
+*/
+function wpst_make_an_archive( $post_type = null, $custom_field_key = null, $format = 'Ymd', $limit = 12 ) {
 
+	// Determine when 'now' is
+	$now = new DateTime();
 
+	// Load in the $wpdb class
+	global $wpdb;
+
+	// If the post type is not specified, assume the current post type
+	if ( $post_type == null ) {
+	    $post_type = get_post_type();
+	}
+
+	// If no custom field is being queried, assume post published date
+	if ( $custom_field_key == null ) {
+
+	    // Format 'now' to be wp_posts compatible
+	    $now = $now->format('Y-m-d H:i:s');
+
+	    // create a query for post_dates of specified post_type earlier than 'now'
+	    $sql = $wpdb->prepare(
+		"SELECT post_date AS post_date
+		FROM wp_posts
+		WHERE post_type = %s AND post_status = 'publish' AND post_date < %s
+		ORDER BY post_date DESC",
+		$post_type,
+		$now
+	    );
+
+	} else {
+
+	    // Re-format 'now' to match the custom formatting for the custom field key
+	    $now = $now->format( $format );
+
+	    // Fetch an array of valid post_ids to query against
+	    $ids = $wpdb->get_results( $wpdb->prepare(
+		"SELECT id FROM wp_posts WHERE post_type = %s AND post_status = 'publish'",
+		$post_type
+	    ), ARRAY_A );
+
+	    // If a valid post_type has valid post_ids
+	    if ( $ids ) {
+
+		// concat all the post_ids into a single string starting and ending with brackets
+		$in = "(" . implode( ",", array_column( $ids, 'id' ) ) . ")";
+
+		// create a query to lookup the value of the custom field key, limiting to previously
+		// defined post_ids and post_date of earlier than 'now'
+		$sql = $wpdb->prepare(
+		    "SELECT meta_value as post_date
+		    FROM wp_postmeta
+		    WHERE meta_key = %s AND meta_value < %s AND post_id IN $in
+		    ORDER BY post_date DESC",
+		    $custom_field_key,
+		    $now
+		);
+
+	    } else {
+
+		// If the post_type was invalid or no post_ids were found, abort
+		return [];
+	    }
+	}
+
+	// execute the query to return raw DB records that match
+	$raw_results = $wpdb->get_results( $sql, ARRAY_A );
+
+	// If records were found
+	if ( $raw_results ) {
+
+	    // Select just the 'post_date' column for each db record and turn into a valid
+	    // `Y/m` format -> drop any duplicates -> ensure the array_keys are reset
+	    $dates = array_values( array_unique( array_map( function( $el ) {
+		return (new DateTime( $el ))->format('Y/m');
+	    }, array_column( $raw_results, 'post_date' ) ) ) );
+
+	    // using the `Y/m` formatted dates, create a 'key' with a human-friendly 'M Y' format
+	    // -> then create a date archive url 'value' out of the `Y/m` format -> split the results
+	    // so only the $limit is returned
+	    return array_chunk( array_combine( array_map( function( $el ) {
+		return DateTime::createFromFormat( 'Y/m', $el )->format('M Y');
+	    }, $dates ), array_map( function( $el ) {
+		return trailingslashit( home_url( $el ) );
+	    }, $dates ) ), $limit, true )[0];
+
+	} else {
+
+	    // if no records match the query, abort
+	    return [];
+	}
+
+}
