@@ -197,7 +197,7 @@ function wpst_make_an_archive( $post_type = null, $custom_field_key = null, $for
 		return DateTime::createFromFormat( 'Y/m', $el )->format('M Y');
 	    }, $dates ), array_map( function( $el ) {
 		return trailingslashit( home_url( $el ) );
-	    }, $dates ) ), $limit )[0];
+	    }, $dates ) ), $limit, true )[0];
 
 	} else {
 
