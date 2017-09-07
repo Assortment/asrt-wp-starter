@@ -1,0 +1,68 @@
+/**
+ * Title:
+ *    Debugging
+ * Description:
+ *    helper class to show which breakpoint you're currently on
+ * Sections:
+ *    $. Mixin
+ *    $. Class
+ */
+
+
+/* $. Mixin
+\*----------------------------------------------------------------*/
+
+@mixin debug-message {
+    position: fixed;
+    z-index: 50;
+    right: 1em;
+    bottom: 1em;
+    display: inline-block;
+    padding: .35em;
+    font-size: .8em;
+    text-transform: uppercase;
+    color: #FFF;
+    background-color: rgba(0, 0, 0, .75);
+}
+
+
+
+/* $. Class
+\*----------------------------------------------------------------*/
+
+body.debug {
+    &:before {
+        @include debug-message;
+        content: "Breakpoint 0";
+    }
+
+    @include respond-min($bp1) {
+        &:before {
+            content: "Breakpoint 1"
+        }
+    }
+
+    @include respond-min($bp2) {
+        &:before {
+            content: "Breakpoint 2"
+        }
+    }
+
+    @include respond-min($bp3) {
+        &:before {
+            content: "Breakpoint 3"
+        }
+    }
+
+    @include respond-min($bp4) {
+        &:before {
+            content: "Breakpoint 4"
+        }
+    }
+
+    @include respond-min($bp5) {
+        &:before {
+            content: "Breakpoint 5"
+        }
+    }
+}

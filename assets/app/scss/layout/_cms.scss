@@ -1,0 +1,92 @@
+/**
+ * Title:
+ *    CMS
+ * Description:
+ *    Fields and selectors that come through WordPress or a plugin
+ * Sections:
+ *    $. Gravity Forms
+ *    $. WYSIWIG
+ */
+
+
+
+/* $. Gravity Forms
+\*----------------------------------------------------------------*/
+
+.gform_fields {
+    margin-bottom: 0;
+}
+
+.gfield {
+}
+
+.gfield_required {
+    display: inline-block;
+    margin-left: $base/4;
+    font-size: .85rem;
+    color: $color-link;
+}
+
+.validation_message {
+    margin-top: -$base/2;
+    margin-bottom: $base;
+    font-size: .85rem;
+    color: $grey;
+
+    .ginput_container_textarea + & {
+        margin-top: -$base;
+    }
+}
+
+.gform_validation_container {
+    display: none;
+    user-select: none;
+}
+
+
+
+/* $. WYSIWIG
+\*----------------------------------------------------------------*/
+
+.alignleft {
+
+    @include respond-min($bp2) {
+        float: left;
+        margin: 1rem 1rem 0 0;
+    }
+
+}
+
+.alignright {
+
+    @include respond-min($bp2) {
+        float: right;
+        margin: 1rem 0 0 1rem;
+        text-align: right;
+    }
+
+}
+
+.aligncenter {
+
+    @include respond-min($bp2) {
+        display: block;
+        margin: 0 auto;
+    }
+
+}
+
+.wp-caption {
+    max-width: 100%;
+}
+
+.wp-caption-text {
+    padding: 0.4rem 0;
+    border-bottom: 1px solid $grey_light;
+    color: $grey;
+}
+
+
+
+/* $. Other
+\*----------------------------------------------------------------*/

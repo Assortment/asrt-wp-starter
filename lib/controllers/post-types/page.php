@@ -19,19 +19,24 @@
  ******************************************************************************/
 
 /**
- * Get pages.
+ * Get pages through a new WP_Query() object.
  *
- * @param  int     $parent  Define the parent page of the pages you're getting.
- * @param  int     $count   Number of posts you'd like to bring through.
- * @return object           WP_Query instance
+ * @param  int     $parent    Define the parent page of the pages you're getting.
+ * @param  array   $excludes  An array of post ID's to exclude from the query.
+ * @param  int     $count     Number of posts you'd like to bring through.
+ * @param  string  $orderby   Type of ordering.
+ * $param  string  $ordering  The order preference. 'ASC' or 'DESC'.
+ *
+ * @return object  WP_Query instance
  */
-function wpst_get_pages ( $parent = 0, $count = -1, $orderby = 'menu_order', $order = 'ASC' ) {
+function wpst_get_pages ( $parent = 0, $excludes = array(), $count = -1, $orderby = 'menu_order', $order = 'ASC' ) {
 
     // Define arguments for query.
     $args = array(
         'post_type'      => 'page',
         'post_parent'    => $parent,
         'posts_per_page' => $count,
+        'post__not_in'   => $excludes,
         'orderby'        => $orderby,
         'order'          => $order
     );

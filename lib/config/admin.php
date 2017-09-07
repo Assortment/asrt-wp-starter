@@ -200,6 +200,53 @@ function wpst_update_mime_types ( $mimes ) {
 
 add_filter( 'upload_mimes', 'wpst_update_mime_types' );
 
+/**
+ * $. Forces Excerpt to sit between title and content.
+ * @param $post
+ *
+ * Rationale: All our templates order in title --> excerpt --> content, so it
+ * makes sense to order it like that in the admin
+ ******************************************************************************/
+function wpst_increase_excerpt_priority( $post ) {
+
+    if ( post_type_supports( $post->post_type, 'excerpt' ) ) {
+        remove_meta_box( 'postexcerpt', $post->post_type, 'normal' ); ?>
+        <div class="postbox" style="margin-bottom: 0; margin-top: 1rem">
+            <h3 class="hndle"><span>Excerpt</span></h3>
+            <div class="inside">
+                <?php post_excerpt_meta_box( $post ); ?>
+            </div>
+        </div>
+        <?php
+    }
+
+}
+
+add_action( 'edit_form_after_title', 'wpst_increase_excerpt_priority' );
+
+/**
+ * Force excerpt to always show (in post types that use it)
+ * @param $user_login
+ * @param $user
+ *
+ * Rationale: Client accounts are often set to not show the excerpt
+ ******************************************************************************/
+function wpst_force_excerpt_to_show($user_login, $user) {
+    $post_types = get_post_types();
+    foreach ( $post_types as $post_type ) {
+        $key = 'metaboxhidden_' . $post_type;
+        $meta = get_user_meta( $user->ID, $key, true );
+        if ( $meta != '' ) {
+            $post_meta = maybe_unserialize( $meta );
+            $post_search = array_search('postexcerpt', $post_meta);
+            if ( $post_search ) {
+                unset($post_meta[$post_search]);
+                update_user_meta( $user->ID, $key, $post_meta );
+            }
+        }
+    }
+}
+add_action( 'wp_login', 'wpst_force_excerpt_to_show', 10, 2 );
 
 
 /**

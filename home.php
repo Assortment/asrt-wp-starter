@@ -1,49 +1,39 @@
 <?php
-
 /**
  ***************************************************************************
- * Home Template
+ * News: Listing
  ***************************************************************************
  *
- * This template is used to show the posts landing, assuming its not already
- * the Front Page of the site, in which case `front-page.php` would take
- * priority.
+ * This template is the catch-all for the news main page,
+ * categories and archives.
  *
  */
 
-
-
-// Get the header
-get_header();
-
-// Define fields from static 'blog' page in WordPress based on page ID
-$home_title   = get_the_title( 1 );
-$home_excerpt = wpst_get_excerpt_by_id( 1 );
-
 ?>
+
+<?php get_template_part('views/globals/breadcrumbs'); ?>
 
 <main class="section">
     <div class="container">
-        <?php if ( $home_title ): ?>
-            <h1 class="headline"><?php echo $home_title; ?></h1>
-        <?php endif; ?>
 
-        <?php if ( $home_excerpt ): ?>
-            <p class="intro"><?php echo $excerpt; ?></p>
-        <?php endif; ?>
+        <div class="grid">
+            <div class="grid__item grid__item--8-12-bp3">
+                <?php
+                    if ( have_posts() ):
+                        while ( have_posts() ): the_post();
+                            get_template_part('views/post/loop');
+                        endwhile;
+                    else:
+                        get_template_part( 'views/errors/404-posts' );
+                    endif;
 
-        <?php if ( have_posts() ): ?>
-            <?php while ( have_posts() ): ?>
-                <?php the_post(); ?>
+                    get_template_part( 'views/globals/pagination' );
+                ?>
+            </div>
+            <div class="grid__item grid__item--4-12-bp3">
+                <?php //get_sidebar('news'); ?>
+            </div>
+        </div>
 
-                <?php get_template_part('views/post/index'); ?>
-            <?php endwhile; ?>
-        <?php else: ?>
-            <?php get_template_part( 'views/errors/404-posts' ); ?>
-        <?php endif; ?>
-
-    </div>
-    <!-- .container -->
-</main>
-
-<?php get_footer(); ?>
+    </div><!-- .container -->
+</main><!-- .section -->

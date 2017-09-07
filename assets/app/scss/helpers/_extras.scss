@@ -1,0 +1,113 @@
+/**
+ * Title:
+ *    Extras
+ * Description:
+ *    Any other helpers which will be used throughout the project
+ * Sections:
+ *    $. Clearfix
+ *    $. Flexible
+ *    $. States
+ *    $. Breakpoint Visibility
+ */
+
+
+
+/* $. Clearfix - http://goo.gl/5Fvrh
+\*----------------------------------------------------------------*/
+
+%cf,
+.cf {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+
+
+/* $. Flexible
+\*----------------------------------------------------------------*/
+
+.flexible {
+    position: relative;
+    background-color: $grey-lighter;
+    overflow: hidden;
+
+    @include aspect-ratio(16, 9);
+
+    iframe,
+    object,
+    embed,
+    div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.flexible--image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.flexible--square {
+    @include aspect-ratio(1, 1);
+}
+
+
+/* $. States
+\*----------------------------------------------------------------*/
+
+/* Visually Hidden */
+.is-hidden {
+    border: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    height: 1px !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+}
+
+.is-current,
+.is-current a {
+    color: $color-text;
+}
+
+
+
+/* $. Breakpoint Visibility
+\*----------------------------------------------------------------*/
+
+.is-visible--bp2 {
+    display: none;
+
+    @include respond-min($bp2) {
+        display: block;
+    }
+}
+
+.is-visible--bp4 {
+    display: none;
+
+    @include respond-min($bp4) {
+        display: block;
+    }
+}
+
+.is-hidden--bp2 {
+    @include respond-max($bp2) {
+        display: none;
+    }
+}
+
+.is-hidden--bp3 {
+    @include respond-max($bp3) {
+        display: none;
+    }
+}

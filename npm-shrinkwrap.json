@@ -1,0 +1,16 @@
+{
+  "name": "mixd-frontend-framework",
+  "version": "1.4.1",
+  "dependencies": {
+    "jquery": {
+      "version": "1.12.4",
+      "from": "jquery@>=1.12.4 <1.13.0",
+      "resolved": "https://registry.npmjs.org/jquery/-/jquery-1.12.4.tgz"
+    },
+    "node-normalize-scss": {
+      "version": "3.0.0",
+      "from": "node-normalize-scss@>=3.0.0 <3.1.0",
+      "resolved": "https://registry.npmjs.org/node-normalize-scss/-/node-normalize-scss-3.0.0.tgz"
+    }
+  }
+}
