@@ -1,0 +1,43 @@
+/**
+ * Title:
+ *    Containers
+ * Description:
+ *    Container based layout modules
+ * Sections:
+ *    $. Base
+ *    $. Modifications
+ */
+
+
+
+/* $. Base
+\*----------------------------------------------------------------*/
+
+.container {
+    margin: 0 auto;
+    width: 92.5%;
+    min-width: 15em; // 240px
+    max-width: 68.5em; // 1233px
+
+    @include respond-min($bp1) {
+        width: 85%;
+    }
+}
+
+
+
+/* $. Modifications
+\*----------------------------------------------------------------*/
+
+.container--small {
+    max-width: 850px;
+}
+
+.container--flush {
+    position: relative;
+    width: 100%;
+
+    @include respond-min($bp3) {
+        width: 85%;
+    }
+}

@@ -52,6 +52,13 @@ function wpst_gforms_submit_button( $btn, $form ){
 
 add_filter( 'gform_submit_button', 'wpst_gforms_submit_button', 10, 2 );
 
+function wpst_filter_gform_ip_address( $ip ) {
+    return isset( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ? $_SERVER['HTTP_X_FORWARDED_FOR'] : $_SERVER['HTTP_CLIENT_IP'];
+}
+
+add_filter( 'gform_ip_address', 'wpst_filter_gform_ip_address' );
+
+
 
 
 /**
@@ -66,4 +73,3 @@ function wpst_tinymce_specify_formats($init) {
 }
 
 add_filter('tiny_mce_before_init', 'wpst_tinymce_specify_formats' );
-

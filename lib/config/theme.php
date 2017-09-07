@@ -100,8 +100,8 @@ add_action( 'wp_footer', 'wpst_deregister_oembed' );
  ******************************************************************************/
 
 function wpst_enqueue_scripts() {
-    $js_head = wpst_file_cache_busting(get_stylesheet_directory_uri() . '/assets/dist/js/head.min.js');
-    $js_main = wpst_file_cache_busting(get_stylesheet_directory_uri() . '/assets/dist/js/main.min.js');
+    $js_head = wpst_file_cache_busting( get_stylesheet_directory_uri() . '/assets/dist/js/head.min.js');
+    $js_main = wpst_file_cache_busting( get_stylesheet_directory_uri() . '/assets/dist/js/main.min.js');
 
     wp_deregister_script( 'jquery' );
 

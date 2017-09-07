@@ -1,0 +1,78 @@
+/**
+ * Title:
+ *    Main Stylesheet
+ * Description:
+ *    This is the main Scss file which will import all partials and
+ *    compile into: assets/css/styles.css
+ * Sections:
+ *    $. Config
+ *    $. Base
+ *    $. Layout
+ *    $. Modules
+ *    $. Interface
+ *    $. Helpers
+ */
+
+
+
+/* $. Config - Variables, global mixins & Bower components
+\*----------------------------------------------------------------*/
+
+@charset "UTF-8";
+@import "config/vars";
+@import "config/mixins";
+@import "config/vendors";
+
+
+
+/* $. Base - Project defaults & Element styling
+\*----------------------------------------------------------------*/
+
+@import "base/defaults";
+@import "base/elements";
+@import "base/typography";
+@import "base/lists";
+@import "base/forms";
+@import "base/tables";
+
+
+
+/* $. Modules - Global objects i.e. .btn, .island, etc
+\*----------------------------------------------------------------*/
+
+@import "modules/icons";
+@import "modules/media";
+@import "modules/list";
+@import "modules/btn";
+@import "modules/panel";
+
+
+
+/* $. Interface - Project specific objects i.e. .work, .product, etc
+\*----------------------------------------------------------------*/
+
+@import "interface/section";
+@import "interface/nav";
+@import "interface/breadcrumb";
+@import "interface/pagination";
+
+
+
+/* $. Layout - Page based layouts i.e. .header, .page-86, etc
+\*----------------------------------------------------------------*/
+
+@import "layout/container";
+@import "layout/content";
+@import "layout/cms";
+@import "layout/footer";
+@import "layout/header";
+@import "layout/sidebar";
+
+
+
+/* $. Helpers - i.e. Clearfixes, accessbility hidden, etc
+\*----------------------------------------------------------------*/
+
+@import "helpers/extras";
+@import "helpers/utility";
+@import "helpers/debug";

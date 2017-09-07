@@ -1,0 +1,120 @@
+/**
+ * Title:
+ *    Elements
+ * Description:
+ *    The styling of basic element tags
+ * Sections:
+ *    $. Basics
+ *    $. Links
+ *    $. Blockquotes
+ *    $. Embedded
+ */
+
+
+
+/* $. Basics
+\*----------------------------------------------------------------*/
+
+hr {
+    border: 0;
+    border-top: 1px solid darken($color-background, 10%);
+}
+
+ins {
+    text-decoration: none;
+    color: #000;
+    background: #ff9;
+}
+
+mark {
+    font-style: italic;
+    font-weight: bold;
+}
+
+pre {
+    overflow-x: auto;
+}
+
+address {
+    white-space: pre-line;
+}
+
+
+
+/* $. Links
+\*----------------------------------------------------------------*/
+
+a {
+    text-decoration: none;
+    color: $color-link;
+    border-bottom: 1px solid mix(white, $color-link, 50%);
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: $color-link-hover;
+        border-bottom-color: $color-link-hover;
+    }
+}
+
+
+
+/* $. Blockquotes
+\*----------------------------------------------------------------*/
+
+blockquote {
+    clear: both;
+    margin-left: 0;
+    margin-right: 0;
+    font-style: italic;
+
+    @include respond-min($bp2) {
+        padding-left: $base*2;
+        padding-right: $base*2;
+    }
+
+    p {
+        font-size: 1.35em;
+    }
+
+    cite {
+        margin-top: $base*0.5;
+        display: block;
+        font-style: normal;
+        font-size: 1.11rem; // 20px
+    }
+}
+
+
+
+/* $. Embedded
+\*----------------------------------------------------------------*/
+
+img {
+    display: inline-block;
+    margin: 0 auto;
+    font-style: italic;
+    color: #666;
+    vertical-align: middle;
+
+    &[width] {
+        width: auto !important;
+    }
+
+    &[height] {
+        height: auto !important;
+    }
+}
+
+img,
+audio,
+canvas,
+embed,
+object,
+video {
+    max-width: 100%;
+}
+
+iframe {
+    display: block;
+}
