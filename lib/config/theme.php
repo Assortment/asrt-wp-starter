@@ -110,6 +110,10 @@ function wpst_enqueue_scripts() {
 
     wp_register_script( 'js-main', $js_main, '', null, true );
     wp_enqueue_script( 'js-main' );
+    
+    wp_localize_script( 'js-main', 'stylesheet', [
+        'dir' => get_stylesheet_directory_uri()
+    ]);
 }
 
 add_action( 'wp_enqueue_scripts', 'wpst_enqueue_scripts', 11 );
